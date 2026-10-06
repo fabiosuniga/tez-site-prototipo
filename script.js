@@ -1,6 +1,6 @@
 /* ============================================================
    TEZ & TEZ — Landing Page Interactivity
-   Animations, Scroll Effects, Count-up, Mobile Nav
+   Animations, Scroll Effects, Count-up, Mobile Nav, 3D Tilt, Spotlight
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -26,25 +26,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ============================================================
-  // 2. MOBILE NAV TOGGLE
+  // 2. MOBILE NAV TOGGLE & OVERLAY
   // ============================================================
   const navToggle = document.getElementById('nav-toggle');
   const navMenu = document.getElementById('nav-menu');
+  const navOverlay = document.getElementById('nav-overlay');
+
+  function closeMenu() {
+    navToggle.classList.remove('active');
+    navMenu.classList.remove('active');
+    if (navOverlay) navOverlay.classList.remove('active');
+    navToggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
 
   if (navToggle && navMenu) {
     navToggle.addEventListener('click', () => {
-      navToggle.classList.toggle('active');
+      const isExpanded = navToggle.classList.toggle('active');
       navMenu.classList.toggle('active');
+      if (navOverlay) navOverlay.classList.toggle('active');
+      navToggle.setAttribute('aria-expanded', isExpanded);
       document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
     });
 
+    if (navOverlay) {
+      navOverlay.addEventListener('click', closeMenu);
+    }
+
     // Close menu on link click
     navMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navToggle.classList.remove('active');
-        navMenu.classList.remove('active');
-        document.body.style.overflow = '';
-      });
+      link.addEventListener('click', closeMenu);
     });
   }
 
@@ -104,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(update);
   }
 
-  const countElements = document.querySelectorAll('[data-target]');
+  const countElements = document.querySelectorAll('.number-value[data-target]');
 
   if (countElements.length > 0) {
     const countObserver = new IntersectionObserver((entries) => {
@@ -143,9 +154,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ============================================================
-  // 6. FORM HANDLING
+  // 6. FORM HANDLING & VISUAL FEEDBACK
   // ============================================================
   const contactForm = document.getElementById('contact-form');
+  const formStatus = document.getElementById('form-status');
 
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
@@ -157,16 +169,27 @@ document.addEventListener('DOMContentLoaded', () => {
       // Visual feedback
       const submitBtn = contactForm.querySelector('.form-submit');
       const originalText = submitBtn.textContent;
-      submitBtn.textContent = 'Mensagem Enviada! ✓';
-      submitBtn.style.background = 'linear-gradient(135deg, #059669, #10B981)';
+      submitBtn.textContent = 'Enviando...';
       submitBtn.disabled = true;
 
+      // Simulate network request
       setTimeout(() => {
-        submitBtn.textContent = originalText;
-        submitBtn.style.background = '';
-        submitBtn.disabled = false;
-        contactForm.reset();
-      }, 3000);
+        submitBtn.textContent = 'Mensagem Enviada! ✓';
+        submitBtn.style.background = 'linear-gradient(135deg, #059669, #10B981)';
+        
+        if (formStatus) {
+          formStatus.textContent = 'Mensagem enviada com sucesso.';
+        }
+
+        setTimeout(() => {
+          submitBtn.textContent = originalText;
+          submitBtn.style.background = '';
+          submitBtn.disabled = false;
+          contactForm.reset();
+          if (formStatus) formStatus.textContent = '';
+        }, 3000);
+
+      }, 1000);
 
       console.log('Form data:', data);
     });
@@ -199,5 +222,86 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   window.addEventListener('scroll', highlightNavLink, { passive: true });
+  highlightNavLink(); // Run on load
+
+
+
+
+
+  // ============================================================
+  // 9. CARDS SPOTLIGHT EFFECT (Mouse tracking)
+  // ============================================================
+  const spotCards = document.querySelectorAll('.service-card, .module-card');
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    spotCards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--x', `${x}px`);
+        card.style.setProperty('--y', `${y}px`);
+        card.style.setProperty('--spot', `1`);
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.setProperty('--spot', `0`);
+      });
+    });
+  }
+
+
+  // ============================================================
+  // 10. QUAD DIAGRAM INTERACTION
+  // ============================================================
+  const conciliationItems = document.querySelectorAll('.conciliation-item');
+  const quadNodes = document.querySelectorAll('.quad-node');
+
+  conciliationItems.forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      const nodeType = item.getAttribute('data-node');
+      quadNodes.forEach(node => {
+        if (node.getAttribute('data-node') === nodeType) {
+          node.classList.add('active');
+          node.style.borderColor = 'var(--amber-500)';
+          node.style.transform = 'scale(1.1)';
+          node.style.boxShadow = 'var(--shadow-amber)';
+          node.style.zIndex = '10';
+        } else {
+          node.classList.remove('active');
+          node.style.borderColor = '';
+          node.style.transform = '';
+          node.style.boxShadow = '';
+          node.style.zIndex = '';
+        }
+      });
+    });
+    
+    // Suporte para teclado / acessibilidade
+    item.addEventListener('focus', () => {
+      item.dispatchEvent(new Event('mouseenter'));
+    });
+
+    item.addEventListener('mouseleave', () => {
+      quadNodes.forEach(node => {
+        node.classList.remove('active');
+        node.style.borderColor = '';
+        node.style.transform = '';
+        node.style.boxShadow = '';
+        node.style.zIndex = '';
+      });
+    });
+    
+    item.addEventListener('blur', () => {
+      item.dispatchEvent(new Event('mouseleave'));
+    });
+  });
+
+
+  // ============================================================
+  // 11. DYNAMIC FOOTER YEAR
+  // ============================================================
+  const currentYearEl = document.getElementById('current-year');
+  if (currentYearEl) {
+    currentYearEl.textContent = new Date().getFullYear();
+  }
 
 });
