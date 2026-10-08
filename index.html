@@ -16,18 +16,18 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:url" content="https://te2.com.br">
-  <meta property="og:image" content="https://te2.com.br/material_de_apoio/logo-TEZ-png.png">
+  <meta property="og:image" content="https://te2.com.br/assets/img/capa-social.png">
   <meta name="twitter:card" content="summary_large_image">
   <title>TEZ & TEZ — Asset Management Solutions | Gestão de Ativos para o Setor Elétrico</title>
 
-  <!-- Fontes: preconnect + link direto (mais rápido que @import no CSS) -->
+  <!-- Fontes: preconnect + link direto -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
 
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/png" href="material_de_apoio/icone.png">
+  <link rel="icon" type="image/png" href="assets/img/icone.png">
 </head>
 
 <body>
@@ -38,7 +38,7 @@
   <nav class="navbar" id="navbar" aria-label="Navegação principal">
     <div class="container">
       <a href="#" class="navbar-logo" id="navbar-logo">
-        <img src="material_de_apoio/logo-TEZ-V2-png.png" alt="TEZ & TEZ Logo">
+        <img src="assets/img/logo-TEZ-V2-png.png" alt="TEZ & TEZ Logo">
       </a>
 
       <div class="navbar-nav" id="nav-menu">
@@ -46,6 +46,7 @@
         <a href="#servicos">Serviços</a>
         <a href="#plataforma">Plataforma TGA</a>
         <a href="#conformidade">Conformidade</a>
+        <a href="#faq">FAQ</a>
         <a href="#contato" class="navbar-cta">Fale com Especialista</a>
       </div>
 
@@ -68,7 +69,7 @@
          2. HERO SECTION
          ============================================================ -->
     <section class="hero" id="hero">
-      <!-- Aurora: orbs de luz em movimento lento -->
+      <!-- orbs de luz em movimento lento -->
       <div class="hero-glow" aria-hidden="true"></div>
 
       <div class="container">
@@ -116,8 +117,7 @@
           <div class="hero-cube-wrapper" id="hero-cube-wrapper">
             <span class="hero-cube-light" aria-hidden="true"></span>
             <div class="hero-cube-tilt">
-              <img src="material_de_apoio/logo-TEZ-png.png" alt="TEZ & TEZ Cubo 3D" id="hero-cube"
-                fetchpriority="high">
+              <img src="assets/img/logo-TEZ-png.png" alt="TEZ & TEZ Cubo 3D" id="hero-cube" fetchpriority="high">
             </div>
           </div>
         </div>
@@ -144,8 +144,11 @@
         </div>
         <div class="number-item">
           <div class="number-value">
-            <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align: -0.1em;">
-              <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path>
+            <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align: -0.1em;">
+              <path
+                d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z">
+              </path>
               <path d="m9 12 2 2 4-4"></path>
             </svg>
           </div>
@@ -171,7 +174,8 @@
             ecossistema de software proprietário em nuvem, desenvolvido na plataforma Oracle.
           </p>
           <p class="about-text reveal reveal-delay-2">
-            Nosso diferencial competitivo é a <strong>Conciliação Quádrupla</strong>: o alinhamento completo entre quatro
+            Nosso diferencial competitivo é a <strong>Conciliação Quádrupla</strong>: o alinhamento completo entre
+            quatro
             dimensões fundamentais dos seus ativos.
           </p>
 
@@ -233,7 +237,6 @@
         </div>
 
         <div class="about-visual reveal reveal-delay-2">
-          <!-- Diagrama decorativo (o conteúdo já está na lista ao lado) -->
           <div class="quad-diagram" id="quad-diagram" aria-hidden="true">
             <div class="quad-orbit"></div>
             <div class="quad-spoke quad-spoke--top"></div>
@@ -489,7 +492,6 @@
           <!-- KINESIS -->
           <div class="module-card reveal reveal-delay-7" id="module-kinesis">
             <div class="module-icon">
-              <!-- Ícone "shuffle": adições, baixas e transferências -->
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round" aria-hidden="true">
                 <polyline points="16 3 21 3 21 8"></polyline>
@@ -522,27 +524,18 @@
           </p>
         </div>
 
-        <div class="compliance-badges reveal reveal-delay-3">
-          <!-- ANEEL: balança (regulação) -->
-          <div class="compliance-badge" id="badge-aneel">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round" aria-hidden="true">
-              <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
-              <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
-              <path d="M7 21h10"></path>
-              <path d="M12 3v18"></path>
-              <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path>
-            </svg>
-            ANEEL
+        <div class="compliance-institutions reveal reveal-delay-3">
+          <p class="compliance-institutions-title">Em conformidade com as diretrizes de:</p>
+          <div class="compliance-logos">
+            <img src="assets/img/Aneel.png" alt="Logo ANEEL" class="compliance-logo">
+            <img src="assets/img/ONS.png" alt="Logo ONS" class="compliance-logo">
           </div>
-          <!-- ONS: raio (operação do sistema) -->
-          <div class="compliance-badge" id="badge-ons">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round" aria-hidden="true">
-              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-            </svg>
-            ONS
-          </div>
+        </div>
+
+        <p class="compliance-institutions-title reveal reveal-delay-4" style="margin-top: 48px; text-align: center;">
+          Atendimento integral aos normativos:</p>
+
+        <div class="compliance-badges reveal reveal-delay-5">
           <!-- MCPSE: manual (livro) -->
           <div class="compliance-badge" id="badge-mcpse">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -604,9 +597,10 @@
           </div>
         </div>
 
-        <p class="compliance-text reveal reveal-delay-4">
+        <p class="compliance-text reveal reveal-delay-6">
           Credenciada pela ANEEL para elaboração de laudos da Base de Remuneração Regulatória (BRR) e apoio à
-          fiscalização (SFF), a TEZ &amp; TEZ garante total aderência ao Manual de Controle Patrimonial do Setor Elétrico
+          fiscalização (SFF), a TEZ &amp; TEZ garante total aderência ao Manual de Controle Patrimonial do Setor
+          Elétrico
           (MCPSE), ao PRODIST e ao PRORET em todos os seus processos e soluções.
         </p>
       </div>
@@ -614,7 +608,89 @@
 
 
     <!-- ============================================================
-         8. CTA / CONTATO
+         8. FAQ
+         ============================================================ -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="faq-header">
+          <span class="section-label reveal">Dúvidas Frequentes</span>
+          <h2 class="section-title reveal reveal-delay-1">Perguntas Frequentes (FAQ)</h2>
+          <p class="section-subtitle reveal reveal-delay-2">Respostas rápidas sobre a nossa atuação e serviços.</p>
+        </div>
+        <div class="faq-list reveal reveal-delay-3" itemscope itemtype="https://schema.org/FAQPage">
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-question" aria-expanded="false">
+              <span itemprop="name">O que é a Conciliação Quádrupla?</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div class="faq-answer-inner" itemprop="text">
+                <p>É uma metodologia exclusiva da TEZ & TEZ que garante o alinhamento total entre o Inventário Físico de
+                  Campo, as especificações originais de Projeto, a realidade em campo (Físico) e os registros contábeis.
+                  Isso permite identificar sobras, faltas e divergências patrimoniais, blindando a concessionária em
+                  auditorias e revisões tarifárias.</p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-question" aria-expanded="false">
+              <span itemprop="name">Quais normativos a Plataforma TGA e os serviços atendem?</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div class="faq-answer-inner" itemprop="text">
+                <p>Atendemos integralmente aos Manuais e Normas do setor, como o Manual de Controle Patrimonial do Setor
+                  Elétrico (MCPSE), além das diretrizes do PRODIST, PRORET e as exigências da ANEEL (Base de Remuneração
+                  Regulatória - BRR e Sistema de Fiscalização) e ONS.</p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-question" aria-expanded="false">
+              <span itemprop="name">A Plataforma TGA pode ser integrada com o nosso ERP (ex: SAP, Oracle)?</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div class="faq-answer-inner" itemprop="text">
+                <p>Sim. Nossa plataforma é um ecossistema desenvolvido na nuvem com arquitetura Oracle, projetado para
+                  se integrar perfeitamente com os principais ERPs do mercado, garantindo um fluxo contínuo e
+                  transparente de informações entre os sistemas da concessionária e os módulos do TGA.</p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-question" aria-expanded="false">
+              <span itemprop="name">Qual o prazo médio para elaboração de um laudo de Base de Remuneração Regulatória
+                (BRR)?</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div class="faq-answer-inner" itemprop="text">
+                <p>O prazo varia conforme o volume de ativos (tamanho da base de dados) e a complexidade do projeto de
+                  campo. Por favor, entre em contato e, em uma breve conversa, avaliaremos o escopo para oferecer um
+                  cronograma preciso e adaptado à sua realidade.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         9. CTA / CONTATO
          ============================================================ -->
     <section class="contact" id="contato">
       <div class="container">
@@ -679,7 +755,16 @@
           </div>
         </div>
 
-        <form class="contact-form reveal reveal-delay-2" id="contact-form">
+        <!-- Envio via Web3Forms (https://web3forms.com). Funciona também sem JS (POST nativo). -->
+        <form class="contact-form reveal reveal-delay-2" id="contact-form" action="https://api.web3forms.com/submit"
+          method="POST">
+          <input type="hidden" name="access_key" value="1b5a2a9c-39c1-4905-b5ed-b89410f618e0">
+          <input type="hidden" name="subject" value="Novo contato pelo site — TEZ & TEZ">
+          <input type="hidden" name="from_name" value="Site TEZ & TEZ">
+          <!-- Honeypot anti-spam: invisível para pessoas, bots costumam marcar -->
+          <input type="checkbox" name="botcheck" class="form-honeypot" tabindex="-1" autocomplete="off"
+            aria-hidden="true">
+
           <div class="form-grid">
             <div class="form-group">
               <label class="form-label" for="contact-name">Nome <span class="required"
@@ -730,10 +815,27 @@
                     d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
                   </path>
                 </svg>
-                <input type="tel" class="form-input" id="contact-phone" name="phone" placeholder="(00) 00000-0000"
-                  autocomplete="tel">
+                <input type="tel" class="form-input js-phone-mask" id="contact-phone" name="phone"
+                  placeholder="(11) 90000-0000" autocomplete="tel" maxlength="15">
               </div>
             </div>
+            <div class="form-group full-width">
+              <label class="form-label" for="contact-interest">Área de Interesse</label>
+              <div class="input-wrap">
+                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                </svg>
+                <select class="form-input" id="contact-interest" name="interest">
+                  <option value="" disabled selected hidden>Selecione o principal interesse</option>
+                  <option value="Plataforma TGA">Módulos da Plataforma TGA</option>
+                  <option value="Consultoria">Inventário / Consultoria de Campo</option>
+                  <option value="Laudos">Laudos BRR / Apoio Fiscalização</option>
+                  <option value="Outros">Outro assunto</option>
+                </select>
+              </div>
+            </div>
+
             <div class="form-group full-width">
               <label class="form-label" for="contact-message">Mensagem</label>
               <div class="input-wrap input-wrap--textarea">
@@ -746,8 +848,20 @@
               </div>
             </div>
           </div>
+
+          <!-- Consentimento LGPD -->
+          <div class="form-consent">
+            <input type="checkbox" id="contact-consent" name="consentimento_lgpd" value="Sim" required>
+            <label for="contact-consent">
+              Concordo com o tratamento dos meus dados para retorno deste contato, conforme a
+              <a href="politica-de-privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>.
+              <span class="required" aria-hidden="true">*</span>
+            </label>
+            <span class="form-error">É necessário aceitar para enviar.</span>
+          </div>
+
           <button type="submit" class="form-submit" id="form-submit">Enviar Mensagem</button>
-          <p class="sr-only" id="form-status" role="status" aria-live="polite"></p>
+          <p class="form-feedback" id="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>
@@ -756,32 +870,68 @@
 
 
   <!-- ============================================================
-       9. FOOTER
+       10. FOOTER
        ============================================================ -->
   <footer class="footer" id="footer">
     <div class="container">
       <div class="footer-top">
-        <a href="#" class="footer-logo">
-          <img src="material_de_apoio/logo-TEZ-V2-png.png" alt="TEZ & TEZ Logo">
-        </a>
-        <div class="footer-links">
-          <a href="#sobre">Sobre</a>
-          <a href="#servicos">Serviços</a>
-          <a href="#plataforma">Plataforma TGA</a>
-          <a href="#conformidade">Conformidade</a>
-          <a href="#contato">Contato</a>
+        <!-- Coluna 1: Identidade -->
+        <div class="footer-company-info">
+          <a href="#" class="footer-logo">
+            <img src="assets/img/logo-TEZ-V2-png.png" alt="TEZ & TEZ Logo">
+          </a>
+          <div class="footer-address">
+            <strong>Tez & Tez LTDA</strong><br>
+            CNPJ: 14.101.732/0001-82<br>
+            Av. Marcelo Stefani, 15 - Jardim Nova Braganca
+          </div>
+          <div class="footer-social">
+            <a href="https://br.linkedin.com/company/teztez" target="_blank" rel="noopener noreferrer"
+              aria-label="LinkedIn corporativo">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+            </a>
+          </div>
         </div>
+
+        <!-- Coluna 2: Institucional -->
+        <div class="footer-nav">
+          <span class="footer-nav-title">Institucional</span>
+          <div class="footer-links">
+            <a href="#sobre">Sobre</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#plataforma">Plataforma TGA</a>
+          </div>
+        </div>
+
+        <!-- Coluna 3: Suporte e Legal -->
+        <div class="footer-nav">
+          <span class="footer-nav-title">Suporte e Legal</span>
+          <div class="footer-links">
+            <a href="#faq">FAQ</a>
+            <a href="#contato">Contato</a>
+            <a href="#conformidade">Conformidade</a>
+            <a href="politica-de-privacidade.html">Privacidade</a>
+          </div>
+        </div>
+
       </div>
 
       <div class="footer-bottom">
         <p class="footer-copy">© <span id="current-year">2026</span> TEZ &amp; TEZ Asset Management Solutions. Todos os
           direitos reservados.</p>
-        <div class="footer-badges">
-          <span class="footer-badge">ANEEL</span>
-          <span class="footer-badge">ONS</span>
-          <span class="footer-badge">MCPSE</span>
-          <span class="footer-badge">PRODIST</span>
-          <span class="footer-badge">BRR</span>
+        <div class="footer-bottom-badges">
+          <span>ANEEL</span>
+          <span aria-hidden="true" class="bullet">&bull;</span>
+          <span>ONS</span>
+          <span aria-hidden="true" class="bullet">&bull;</span>
+          <span>MCPSE</span>
+          <span aria-hidden="true" class="bullet">&bull;</span>
+          <span>PRODIST</span>
+          <span aria-hidden="true" class="bullet">&bull;</span>
+          <span>BRR</span>
         </div>
       </div>
     </div>
@@ -789,8 +939,9 @@
 
 
   <!-- Botão flutuante de WhatsApp -->
-  <a href="https://wa.me/5511996027342" class="whatsapp-float" id="whatsapp-float" target="_blank"
-    rel="noopener noreferrer" aria-label="Fale conosco pelo WhatsApp">
+  <a href="https://wa.me/5511996027342?text=Ol%C3%A1%2C%20acessei%20o%20site%20da%20TEZ%20%26%20TEZ%20e%20gostaria%20de%20falar%20com%20um%20especialista%20sobre%20gest%C3%A3o%20de%20ativos."
+    class="whatsapp-float" id="whatsapp-float" target="_blank" rel="noopener noreferrer"
+    aria-label="Fale conosco pelo WhatsApp">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path
         d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
