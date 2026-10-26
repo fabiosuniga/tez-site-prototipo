@@ -33,14 +33,52 @@
       <a href="index.html" class="legal-logo" aria-label="TEZ & TEZ — voltar para a página inicial">
         <img src="assets/img/logo-TEZ-svg.svg" alt="TEZ & TEZ — Tecnologia em Gestão de Ativos">
       </a>
-      <a href="index.html" class="btn-outline legal-back" id="legal-back">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <line x1="19" y1="12" x2="5" y2="12"></line>
-          <polyline points="12 19 5 12 12 5"></polyline>
-        </svg>
-        Voltar ao site
-      </a>
+      <div class="legal-header-actions">
+        <!-- Seletor de Idioma Executivo (PT / EN / IT) -->
+        <div class="lang-switch" id="lang-switch">
+          <button class="lang-switch-btn" id="lang-switch-btn" type="button" aria-haspopup="true" aria-expanded="false"
+            aria-label="Alterar idioma do site">
+            <svg class="lang-globe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+              </path>
+            </svg>
+            <span class="lang-code-current" id="lang-code-current">PT</span>
+            <svg class="lang-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="lang-dropdown" id="lang-dropdown" role="menu" aria-label="Selecionar idioma">
+            <button class="lang-option is-active" type="button" role="menuitem" data-lang="pt">
+              <span class="lang-flag" aria-hidden="true">🇧🇷</span>
+              <span class="lang-name">Português</span>
+              <span class="lang-tag">PT</span>
+            </button>
+            <button class="lang-option" type="button" role="menuitem" data-lang="en">
+              <span class="lang-flag" aria-hidden="true">🇺🇸</span>
+              <span class="lang-name">English</span>
+              <span class="lang-tag">EN</span>
+            </button>
+            <button class="lang-option" type="button" role="menuitem" data-lang="it">
+              <span class="lang-flag" aria-hidden="true">🇮🇹</span>
+              <span class="lang-name">Italiano</span>
+              <span class="lang-tag">IT</span>
+            </button>
+          </div>
+        </div>
+
+        <a href="index.html" class="btn-outline legal-back" id="legal-back">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span data-i18n="legal.back">Voltar ao site</span>
+        </a>
+      </div>
     </div>
   </header>
 
@@ -48,85 +86,96 @@
     <div class="container">
       <article class="legal-content">
 
-        <span class="section-label">LGPD</span>
-        <h1 class="legal-title">Política de Privacidade</h1>
-        <p class="legal-updated">Última atualização: <time datetime="2026-10-07">07 de outubro de 2026</time></p>
+        <span class="section-label" data-i18n="legal.badge">LGPD</span>
+        <h1 class="legal-title" data-i18n="legal.title">Política de Privacidade</h1>
+        <p class="legal-updated" data-i18n="legal.updated">Última atualização: <time datetime="2026-10-07">07 de outubro
+            de 2026</time></p>
 
-        <p>
-          A <strong>TEZ &amp; TEZ · Tecnologia em Gestão de Ativos</strong> (Tez &amp; Tez Ltda., "TEZ &amp; TEZ", "nós") respeita a sua
+        <!-- Container para aviso de tradução de cortesia (exibido em EN e IT) -->
+        <div id="legal-disclaimer-wrap" data-i18n="legal.disclaimer"></div>
+
+        <p data-i18n="legal.intro">
+          A <strong>TEZ &amp; TEZ · Tecnologia em Gestão de Ativos</strong> (Tez &amp; Tez Ltda., "TEZ &amp; TEZ",
+          "nós") respeita a sua
           privacidade. Esta Política explica, de forma clara, quais dados pessoais coletamos por meio do site
           <a href="https://te2.com.br">te2.com.br</a>, para quais finalidades, com quem eles podem ser compartilhados
           e quais são os seus direitos, em conformidade com a Lei Geral de Proteção de Dados Pessoais
           (<strong>LGPD — Lei nº 13.709/2018</strong>).
         </p>
 
-        <h2>1. Quem é o controlador dos dados</h2>
-        <ul>
+        <h2 data-i18n="legal.s1_title">1. Quem é o controlador dos dados</h2>
+        <ul data-i18n="legal.s1_body">
           <li><strong>Razão social:</strong> Tez &amp; Tez Ltda.</li>
           <li><strong>CNPJ:</strong> 14.101.732/0001-82</li>
-          <li><strong>Endereço:</strong> Av. Marcelo Stefani, 15 · Jardim Nova Bragança, Bragança Paulista - SP</li>
+          <li><strong>Endereço:</strong> Av. Marcelo Stefani, 15, Módulo 139 sala 103 · Jardim Nova Bragança, Bragança
+            Paulista - SP</li>
           <li><strong>E-mail de contato:</strong> <a href="mailto:contato@te2.com.br">contato@te2.com.br</a></li>
         </ul>
 
-        <h2>2. Quais dados coletamos</h2>
-        <p>Coletamos apenas os dados que você nos fornece voluntariamente pelo formulário de contato:</p>
-        <ul>
+        <h2 data-i18n="legal.s2_title">2. Quais dados coletamos</h2>
+        <p data-i18n="legal.s2_p1">Coletamos apenas os dados que você nos fornece voluntariamente pelo formulário de
+          contato:</p>
+        <ul data-i18n="legal.s2_list">
           <li><strong>Nome</strong> (obrigatório);</li>
           <li><strong>E-mail</strong> (obrigatório);</li>
           <li><strong>Empresa</strong> e <strong>telefone</strong> (opcionais);</li>
           <li><strong>Mensagem</strong> (opcional): o conteúdo que você escrever.</li>
         </ul>
-        <p>
+        <p data-i18n="legal.s2_p2">
           Também registramos o seu aceite desta Política no momento do envio. Pedimos que <strong>não inclua dados
             pessoais sensíveis</strong> (como informações de saúde, religião ou biometria) no campo de mensagem.
         </p>
-        <p>
+        <p data-i18n="legal.s2_p3">
           Ao clicar nos links de WhatsApp ou e-mail, a conversa ocorre diretamente nessas plataformas, que possuem
           suas próprias políticas de privacidade.
         </p>
 
-        <h2>3. Para que usamos os seus dados</h2>
-        <ul>
+        <h2 data-i18n="legal.s3_title">3. Para que usamos os seus dados</h2>
+        <ul data-i18n="legal.s3_list">
           <li>Responder à sua solicitação de contato, dúvida ou pedido de demonstração;</li>
           <li>Enviar informações e propostas comerciais relacionadas ao que você solicitou;</li>
           <li>Manter o histórico do relacionamento comercial.</li>
         </ul>
-        <p>Não vendemos seus dados e não os usamos para finalidades diferentes das descritas aqui.</p>
+        <p data-i18n="legal.s3_p2">Não vendemos seus dados e não os usamos para finalidades diferentes das descritas
+          aqui.</p>
 
-        <h2>4. Bases legais</h2>
-        <p>Tratamos seus dados com fundamento nas seguintes hipóteses do art. 7º da LGPD:</p>
-        <ul>
+        <h2 data-i18n="legal.s4_title">4. Bases legais</h2>
+        <p data-i18n="legal.s4_p1">Tratamos seus dados com fundamento nas seguintes hipóteses do art. 7º da LGPD:</p>
+        <ul data-i18n="legal.s4_list">
           <li><strong>Consentimento</strong> (art. 7º, I), manifestado ao marcar a caixa de aceite no formulário;</li>
           <li><strong>Procedimentos preliminares relacionados a contrato</strong> (art. 7º, V), quando você solicita
             uma proposta ou demonstração.</li>
         </ul>
 
-        <h2>5. Com quem compartilhamos</h2>
-        <p>Seus dados podem ser tratados pelos seguintes operadores, exclusivamente para viabilizar o funcionamento
+        <h2 data-i18n="legal.s5_title">5. Com quem compartilhamos</h2>
+        <p data-i18n="legal.s5_p1">Seus dados podem ser tratados pelos seguintes operadores, exclusivamente para
+          viabilizar o funcionamento
           do site e o retorno do contato:</p>
-        <ul>
+        <ul data-i18n="legal.s5_list">
           <li><strong>Web3Forms</strong>: serviço que recebe o formulário e o encaminha ao nosso e-mail;</li>
           <li><strong>Provedores de E-mail e Hospedagem</strong>: serviços corporativos e infraestrutura em nuvem
             utilizados para manter o site no ar e receber suas mensagens;</li>
           <li><strong>Google Fonts</strong>: fornece as fontes do site e pode registrar o endereço IP do visitante
             durante o carregamento da página.</li>
         </ul>
-        <p>
+        <p data-i18n="legal.s5_p2">
           Alguns desses serviços podem armazenar dados em servidores fora do Brasil. Nesses casos, a transferência
           internacional ocorre nos termos do art. 33 da LGPD.
         </p>
-        <p>Também poderemos compartilhar dados quando exigido por lei ou por ordem de autoridade competente.</p>
+        <p data-i18n="legal.s5_p3">Também poderemos compartilhar dados quando exigido por lei ou por ordem de autoridade
+          competente.</p>
 
-        <h2>6. Por quanto tempo guardamos</h2>
-        <p>
+        <h2 data-i18n="legal.s6_title">6. Por quanto tempo guardamos</h2>
+        <p data-i18n="legal.s6_body">
           Mantemos seus dados pelo tempo necessário para atender à sua solicitação e manter o relacionamento comercial,
           por no máximo <strong>24 meses</strong> após o último contato, salvo obrigação legal que
           exija prazo maior. Depois disso, os dados são excluídos ou anonimizados.
         </p>
 
-        <h2>7. Seus direitos</h2>
-        <p>Conforme o art. 18 da LGPD, você pode, a qualquer momento e gratuitamente, solicitar:</p>
-        <ul>
+        <h2 data-i18n="legal.s7_title">7. Seus direitos</h2>
+        <p data-i18n="legal.s7_p1">Conforme o art. 18 da LGPD, você pode, a qualquer momento e gratuitamente, solicitar:
+        </p>
+        <ul data-i18n="legal.s7_list">
           <li>Confirmação de que tratamos seus dados e acesso a eles;</li>
           <li>Correção de dados incompletos, inexatos ou desatualizados;</li>
           <li>Anonimização, bloqueio ou eliminação de dados desnecessários ou excessivos;</li>
@@ -134,34 +183,34 @@
           <li>Informação sobre com quem compartilhamos seus dados;</li>
           <li><strong>Revogação do consentimento</strong> e eliminação dos dados tratados com base nele.</li>
         </ul>
-        <p>
+        <p data-i18n="legal.s7_p2">
           Para exercer qualquer desses direitos, escreva para o e-mail do Encarregado (item 9). Você também pode
           apresentar reclamação à Autoridade Nacional de Proteção de Dados
           (<a href="https://www.gov.br/anpd" target="_blank" rel="noopener noreferrer">ANPD</a>).
         </p>
 
-        <h2>8. Segurança</h2>
-        <p>
+        <h2 data-i18n="legal.s8_title">8. Segurança</h2>
+        <p data-i18n="legal.s8_body">
           Adotamos medidas técnicas e administrativas para proteger seus dados contra acessos não autorizados, perda
           ou alteração, incluindo conexão criptografada (HTTPS) e acesso restrito às pessoas que precisam dessas
           informações para atender você.
         </p>
 
-        <h2>9. Encarregado pelo tratamento de dados (DPO)</h2>
-        <ul>
+        <h2 data-i18n="legal.s9_title">9. Encarregado pelo tratamento de dados (DPO)</h2>
+        <ul data-i18n="legal.s9_body">
           <li><strong>Nome:</strong> Encarregado de Proteção de Dados da TEZ & TEZ</li>
           <li><strong>E-mail:</strong> <a href="mailto:contato@te2.com.br">contato@te2.com.br</a></li>
         </ul>
 
-        <h2>10. Cookies</h2>
-        <p>
+        <h2 data-i18n="legal.s10_title">10. Cookies</h2>
+        <p data-i18n="legal.s10_body">
           Atualmente este site <strong>não utiliza cookies</strong> de rastreamento, publicidade ou análise. Se isso
           mudar (por exemplo, com a inclusão de ferramentas de estatísticas de acesso), esta Política será atualizada
           e, quando necessário, pediremos o seu consentimento.
         </p>
 
-        <h2>11. Alterações desta Política</h2>
-        <p>
+        <h2 data-i18n="legal.s11_title">11. Alterações desta Política</h2>
+        <p data-i18n="legal.s11_body">
           Podemos atualizar esta Política periodicamente. A data da última atualização aparece no topo da página.
           Recomendamos consultá-la sempre que enviar seus dados.
         </p>
@@ -173,19 +222,18 @@
   <footer class="footer" id="footer">
     <div class="container">
       <div class="footer-bottom">
-        <p class="footer-copy">© <span id="current-year">2026</span> TEZ &amp; TEZ · Tecnologia em Gestão de Ativos. Todos os
+        <p class="footer-copy" data-i18n="legal.foot_copy">© <span id="current-year">2026</span> TEZ &amp; TEZ ·
+          Tecnologia em Gestão de Ativos. Todos os
           direitos reservados.</p>
         <div class="footer-links">
-          <a href="index.html">Página inicial</a>
-          <a href="index.html#contato">Contato</a>
+          <a href="index.html" data-i18n="legal.foot_home">Página inicial</a>
+          <a href="index.html#contato" data-i18n="legal.foot_contact">Contato</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <script>
-    document.getElementById('current-year').textContent = new Date().getFullYear();
-  </script>
+  <script src="legal-i18n.js"></script>
 </body>
 
 </html>

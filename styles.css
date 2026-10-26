@@ -1651,7 +1651,7 @@ textarea {
   font-size: 0.92rem;
   line-height: 1.6;
   color: var(--slate-300);
-  margin-bottom: 0;
+  margin-bottom: 20px;
 }
 
 .module-tags {
@@ -1661,7 +1661,9 @@ textarea {
   margin-top: auto;
 }
 
-.module-tags span {
+.module-tags > span {
+  display: inline-flex;
+  align-items: center;
   font-family: var(--font-heading);
   font-size: 0.72rem;
   font-weight: 600;
@@ -1671,6 +1673,12 @@ textarea {
   background: rgba(245, 158, 11, 0.1);
   border: 1px solid rgba(245, 158, 11, 0.22);
   color: var(--amber-300);
+}
+
+.module-tags > span * {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
 }
 
 /* Card Transversal (VECTO): ocupa toda a largura da grade com layout horizontal */
@@ -2727,8 +2735,9 @@ input:-webkit-autofill:active {
   background: var(--bg-dark);
   padding: 20px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  overflow: hidden;
+  overflow: visible;
   isolation: isolate;
+  z-index: 100;
 }
 
 .legal-header::before {
@@ -2737,7 +2746,7 @@ input:-webkit-autofill:active {
   top: -200px;
   left: 50%;
   translate: -50% 0;
-  width: 900px;
+  width: min(900px, 100vw);
   height: 400px;
   background: radial-gradient(ellipse, rgba(30, 64, 175, 0.25), transparent 65%);
   pointer-events: none;
@@ -2751,6 +2760,12 @@ input:-webkit-autofill:active {
   gap: 16px;
 }
 
+.legal-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .legal-logo img {
   height: 38px;
   width: auto;
@@ -2759,6 +2774,24 @@ input:-webkit-autofill:active {
 .legal-back {
   padding: 10px 20px;
   font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legal-disclaimer {
+  background: rgba(245, 158, 11, 0.08);
+  border-left: 3px solid var(--amber-500);
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  margin-bottom: 28px;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--slate-700);
+}
+
+.legal-disclaimer strong {
+  color: var(--amber-700);
 }
 
 .legal-main {
@@ -2850,6 +2883,10 @@ input:-webkit-autofill:active {
 }
 
 @media (max-width: 640px) {
+  .legal-header-actions {
+    gap: 8px;
+  }
+
   .legal-main {
     padding: 40px 0 64px;
   }
@@ -2860,7 +2897,8 @@ input:-webkit-autofill:active {
   }
 
   .legal-back {
-    padding: 8px 14px;
+    padding: 8px 12px;
+    font-size: 0.8125rem;
   }
 }
 
