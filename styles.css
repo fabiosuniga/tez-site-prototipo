@@ -329,12 +329,12 @@ textarea {
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 16px 0;
+  padding: 18px 0;
   transition: padding 0.4s var(--ease-out);
 }
 
 .navbar.scrolled {
-  padding: 12px 0;
+  padding: 10px 0;
 }
 
 .navbar .container {
@@ -342,7 +342,8 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: max-width 0.5s var(--ease-out), padding 0.5s var(--ease-out);
+  gap: clamp(20px, 2.5vw, 44px);
+  transition: max-width 0.45s var(--ease-out), padding 0.45s var(--ease-out);
 }
 
 /* Fundo da "pílula de vidro" — fica num pseudo-elemento para que o
@@ -360,8 +361,9 @@ textarea {
 }
 
 .navbar.scrolled .container {
-  max-width: min(1080px, calc(100% - 32px));
-  padding: 8px 8px 8px 24px;
+  max-width: min(1280px, calc(100% - 32px));
+  padding: 8px 12px 8px 24px;
+  gap: clamp(16px, 2vw, 36px);
 }
 
 .navbar.scrolled .container::before {
@@ -374,10 +376,12 @@ textarea {
 
 .navbar-logo {
   display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .navbar-logo img {
-  height: 42px;
+  height: 40px;
   width: auto;
   transition: height 0.4s var(--ease-out);
 }
@@ -389,17 +393,23 @@ textarea {
 .navbar-nav {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: clamp(14px, 1.6vw, 24px);
+  flex-shrink: 0;
+}
+
+.navbar.scrolled .navbar-nav {
+  gap: clamp(10px, 1.2vw, 18px);
 }
 
 .navbar-nav a {
   font-family: var(--font-heading);
-  font-size: 0.875rem;
+  font-size: 0.86rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85);
   letter-spacing: 0.01em;
   position: relative;
   padding: 4px 0;
+  white-space: nowrap;
 }
 
 .navbar-nav a:not(.navbar-cta):hover {
@@ -430,9 +440,9 @@ textarea {
 
 .navbar-nav .navbar-cta {
   font-family: var(--font-heading);
-  font-size: 0.875rem;
+  font-size: 0.86rem;
   font-weight: 700;
-  padding: 8px 20px;
+  padding: 8px 18px;
   border-radius: var(--radius-full);
   background: var(--amber-500);
   border: 1px solid var(--amber-600);
@@ -440,6 +450,17 @@ textarea {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.25s var(--ease-out), background 0.25s ease, border-color 0.25s ease;
   white-space: nowrap;
+}
+
+.navbar.scrolled .navbar-nav .navbar-cta {
+  padding: 7px 15px;
+  font-size: 0.82rem;
+}
+
+.navbar.scrolled .lang-switch-btn {
+  padding: 6px 10px;
+  font-size: 0.78rem;
+  gap: 5px;
 }
 
 .navbar-nav .navbar-cta:hover {
@@ -2951,12 +2972,8 @@ input:-webkit-autofill:active {
   }
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-  :root {
-    --section-padding: 64px 0;
-  }
-
+/* Tablet & Mobile Navigation */
+@media (max-width: 1024px) {
   /* Navbar mobile */
   .navbar.scrolled .container {
     padding: 6px 6px 6px 20px;
@@ -3092,6 +3109,13 @@ input:-webkit-autofill:active {
 
   .navbar-toggle {
     display: flex;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 64px 0;
   }
 
   /* Hero */
