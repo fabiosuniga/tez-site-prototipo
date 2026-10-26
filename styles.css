@@ -682,6 +682,21 @@ textarea {
   isolation: isolate;
 }
 
+/* Textura de grade técnica (grid lines) — dissolve suavemente nas bordas */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 60px 60px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 25%, transparent 75%);
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 25%, transparent 75%);
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* Fade inferior — a faixa de números "pousa" num fundo limpo */
 .hero::after {
   content: '';
@@ -691,6 +706,20 @@ textarea {
   bottom: 0;
   height: 140px;
   background: linear-gradient(to bottom, transparent, var(--bg-dark));
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Brilho azul de profundidade tecnológica */
+.hero-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(1000px, 100vw);
+  height: 550px;
+  background: radial-gradient(ellipse 65% 55% at 50% 40%, rgba(30, 64, 175, 0.3) 0%, transparent 70%);
+  filter: blur(50px);
   pointer-events: none;
   z-index: 0;
 }
@@ -1496,21 +1525,38 @@ textarea {
   isolation: isolate;
 }
 
+/* Brilho radial de profundidade na Plataforma TGA */
+.platform::before {
+  content: '';
+  position: absolute;
+  top: -220px;
+  left: 50%;
+  translate: -50% 0;
+  width: min(1100px, 100vw);
+  height: 550px;
+  background: radial-gradient(ellipse, rgba(30, 64, 175, 0.28), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
 
-
-/* Grade sutil que some para baixo */
+/* Textura de grade técnica (grid lines) na Plataforma TGA — suave e elegante */
 .platform::after {
   content: '';
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
   background-size: 60px 60px;
-  -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 0%, #000 30%, transparent 80%);
-  mask-image: radial-gradient(ellipse 70% 50% at 50% 0%, #000 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 35%, #000 30%, transparent 85%);
+  mask-image: radial-gradient(ellipse 85% 75% at 50% 35%, #000 30%, transparent 85%);
   pointer-events: none;
-  z-index: -1;
+  z-index: 0;
+}
+
+.platform .container {
+  position: relative;
+  z-index: 1;
 }
 
 .platform-header {
@@ -1544,10 +1590,11 @@ textarea {
 .module-card {
   background:
     radial-gradient(500px circle at var(--x, 50%) var(--y, 50%), rgba(59, 130, 246, calc(0.12 * var(--spot, 0))), transparent 45%),
-    rgba(255, 255, 255, 0.03);
+    var(--bg-dark);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-lg);
   padding: 32px 28px;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.45);
   transition: transform 0.3s var(--ease-out), box-shadow 0.3s ease, border-color 0.3s ease, --spot 0.4s ease;
   position: relative;
   overflow: hidden;
@@ -2025,6 +2072,7 @@ textarea {
   background: var(--bg-dark);
   position: relative;
   overflow: hidden;
+  isolation: isolate;
 }
 
 .contact::before {
@@ -2033,10 +2081,26 @@ textarea {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 800px;
-  height: 400px;
-  background: radial-gradient(ellipse, rgba(217, 119, 6, 0.08) 0%, transparent 70%);
+  width: min(900px, 100vw);
+  height: 450px;
+  background: radial-gradient(ellipse, rgba(30, 64, 175, 0.22) 0%, transparent 70%);
   pointer-events: none;
+  z-index: 0;
+}
+
+/* Textura de grade técnica (grid lines) na seção de Contato */
+.contact::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 50%, #000 25%, transparent 80%);
+  mask-image: radial-gradient(ellipse 85% 75% at 50% 50%, #000 25%, transparent 80%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .contact .container {
@@ -2202,11 +2266,13 @@ textarea {
 
 /* Form */
 .contact-form {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(15, 23, 42, 0.94);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-xl);
   padding: 40px;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.5);
 }
 
 .form-grid {
