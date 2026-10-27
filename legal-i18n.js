@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "legal.s4_list": "<li><strong>Consentimento</strong> (art. 7º, I), manifestado ao marcar a caixa de aceite no formulário;</li><li><strong>Procedimentos preliminares relacionados a contrato</strong> (art. 7º, V), quando você solicita uma proposta ou demonstração.</li>",
       "legal.s5_title": "5. Com quem compartilhamos",
       "legal.s5_p1": "Seus dados podem ser tratados pelos seguintes operadores, exclusivamente para viabilizar o funcionamento do site e o retorno do contato:",
-      "legal.s5_list": "<li><strong>Web3Forms</strong>: serviço que recebe o formulário e o encaminha ao nosso e-mail;</li><li><strong>Provedores de E-mail e Hospedagem</strong>: serviços corporativos e infraestrutura em nuvem utilizados para manter o site no ar e receber suas mensagens;</li><li><strong>Google Fonts</strong>: fornece as fontes do site e pode registrar o endereço IP do visitante durante o carregamento da página.</li>",
+      "legal.s5_list": "<li><strong>Infraestrutura Oracle (Oracle APEX / ORDS)</strong>: ambiente corporativo seguro da TEZ &amp; TEZ onde as mensagens do formulário são recebidas e armazenadas diretamente em banco de dados;</li><li><strong>Provedores de E-mail e Hospedagem</strong>: serviços corporativos e infraestrutura em nuvem utilizados para manter o site no ar e receber suas mensagens;</li><li><strong>LinkedIn Insight Tag</strong>: tecnologia analítica da LinkedIn Corporation para mensuração de tráfego corporativo e conversão de contatos profissionais;</li><li><strong>Google Fonts</strong>: fornece as fontes do site e pode registrar o endereço IP do visitante durante o carregamento da página.</li>",
       "legal.s5_p2": "Alguns desses serviços podem armazenar dados em servidores fora do Brasil. Nesses casos, a transferência internacional ocorre nos termos do art. 33 da LGPD.",
       "legal.s5_p3": "Também poderemos compartilhar dados quando exigido por lei ou por ordem de autoridade competente.",
       "legal.s6_title": "6. Por quanto tempo guardamos",
@@ -41,12 +41,15 @@ document.addEventListener('DOMContentLoaded', () => {
       "legal.s9_title": "9. Encarregado pelo tratamento de dados (DPO)",
       "legal.s9_body": "<li><strong>Nome:</strong> Encarregado de Proteção de Dados da TEZ &amp; TEZ</li><li><strong>E-mail:</strong> <a href=\"mailto:contato@te2.com.br\">contato@te2.com.br</a></li>",
       "legal.s10_title": "10. Cookies",
-      "legal.s10_body": "Atualmente este site <strong>não utiliza cookies</strong> de rastreamento, publicidade ou análise. Se isso mudar (por exemplo, com a inclusão de ferramentas de estatísticas de acesso), esta Política será atualizada e, quando necessário, pediremos o seu consentimento.",
+      "legal.s10_body": "Este site utiliza cookies estritamente necessários para seu funcionamento e cookies analíticos da <strong>Tag de Insight do LinkedIn</strong> para mensuração de audiência corporativa e eficácia de comunicação profissional. Esses cookies não armazenam dados confidenciais diretamente identificáveis e você pode gerenciar ou desativar o armazenamento de cookies nas configurações do seu navegador a qualquer momento.",
       "legal.s11_title": "11. Alterações desta Política",
       "legal.s11_body": "Podemos atualizar esta Política periodicamente. A data da última atualização aparece no topo da página. Recomendamos consultá-la sempre que enviar seus dados.",
       "legal.foot_copy": "© <span id=\"current-year\">2026</span> TEZ &amp; TEZ · Tecnologia em Gestão de Ativos. Todos os direitos reservados.",
       "legal.foot_home": "Página inicial",
-      "legal.foot_contact": "Contato"
+      "legal.foot_contact": "Contato",
+      "cookie.text": "Utilizamos cookies necessários para o funcionamento da página e analíticos (LinkedIn Insight Tag) para mensurar acessos corporativos. Saiba mais em nossa <a href=\"politica-de-privacidade.html\">Política de Privacidade</a>.",
+      "cookie.essential": "Apenas essenciais",
+      "cookie.accept": "Aceitar todos"
     },
     "en": {
       "legal.back": "Back to website",
@@ -70,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "legal.s4_list": "<li><strong>Consent</strong> (Art. 7, I), provided when checking the consent box in the form;</li><li><strong>Preliminary procedures related to contracts</strong> (Art. 7, V), upon your request for a proposal or demonstration.</li>",
       "legal.s5_title": "5. Data Sharing & Third Parties",
       "legal.s5_p1": "Your data may be processed by the following service providers, strictly to enable the website functionality and facilitate our response:",
-      "legal.s5_list": "<li><strong>Web3Forms</strong>: form submission routing service that forwards inquiries to our corporate email;</li><li><strong>Email & Cloud Hosting Providers</strong>: corporate infrastructure and cloud hosting providers maintaining the website and message delivery;</li><li><strong>Google Fonts</strong>: serves web fonts and may log the visitor IP address during font loading.</li>",
+      "legal.s5_list": "<li><strong>Oracle Infrastructure (Oracle APEX / ORDS)</strong>: secure enterprise environment of TEZ &amp; TEZ where form submissions are received and stored directly in database;</li><li><strong>Email & Cloud Hosting Providers</strong>: corporate infrastructure and cloud hosting providers maintaining the website and message delivery;</li><li><strong>LinkedIn Insight Tag</strong>: analytics technology provided by LinkedIn Corporation to evaluate corporate traffic and professional inquiry conversions;</li><li><strong>Google Fonts</strong>: serves web fonts and may log the visitor IP address during font loading.</li>",
       "legal.s5_p2": "Certain providers may store data on servers located outside Brazil. In such instances, international data transfers comply with Article 33 of the LGPD.",
       "legal.s5_p3": "We may also share data when required by applicable law or by order of a competent governmental authority.",
       "legal.s6_title": "6. Data Retention",
@@ -84,12 +87,15 @@ document.addEventListener('DOMContentLoaded', () => {
       "legal.s9_title": "9. Data Protection Officer (DPO)",
       "legal.s9_body": "<li><strong>Designation:</strong> Data Protection Officer — TEZ &amp; TEZ</li><li><strong>Contact email:</strong> <a href=\"mailto:contato@te2.com.br\">contato@te2.com.br</a></li>",
       "legal.s10_title": "10. Cookies",
-      "legal.s10_body": "This website currently <strong>does not use tracking, advertising, or analytical cookies</strong>. Should this change (e.g., through analytics tools), this Policy will be updated and consent requested whenever required.",
+      "legal.s10_body": "This website uses strictly necessary cookies to ensure proper operation and analytical cookies from the <strong>LinkedIn Insight Tag</strong> to measure business audience reach and the effectiveness of professional communications. These cookies do not store directly identifiable confidential data, and you may manage or disable cookies in your browser settings at any time.",
       "legal.s11_title": "11. Policy Changes",
       "legal.s11_body": "We may update this Policy periodically. The date of the most recent revision appears at the top. We encourage reviewing it periodically.",
       "legal.foot_copy": "© <span id=\"current-year\">2026</span> TEZ &amp; TEZ · Asset Management Technology. All rights reserved.",
       "legal.foot_home": "Home",
-      "legal.foot_contact": "Contact"
+      "legal.foot_contact": "Contact",
+      "cookie.text": "We use essential cookies to ensure proper operation and analytical cookies (LinkedIn Insight Tag) to measure business traffic. Learn more in our <a href=\"politica-de-privacidade.html\">Privacy Policy</a>.",
+      "cookie.essential": "Essential only",
+      "cookie.accept": "Accept all"
     },
     "it": {
       "legal.back": "Torna al sito",
@@ -113,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "legal.s4_list": "<li><strong>Consenso</strong> (art. 7, I), espresso contrassegnando la casella di accettazione nel modulo;</li><li><strong>Misure precontrattuali su richiesta dell'interessato</strong> (art. 7, V), all'atto della richiesta di proposta o dimostrazione.</li>",
       "legal.s5_title": "5. Con chi condividiamo i dati",
       "legal.s5_p1": "I dati possono essere trattati dai seguenti responsabili del trattamento, unicamente al fine di garantire l'operatività del sito e il riscontro alle comunicazioni:",
-      "legal.s5_list": "<li><strong>Web3Forms</strong>: servizio che inoltra i messaggi del modulo alla nostra casella email aziendale;</li><li><strong>Fornitori di Hosting e Posta Elettronica</strong>: infrastrutture cloud aziendali impiegate per il mantenimento del sito e la gestione dei messaggi;</li><li><strong>Google Fonts</strong>: fornisce i font tipografici e può registrare l'indirizzo IP del visitatore durante il caricamento.</li>",
+      "legal.s5_list": "<li><strong>Infrastruttura Oracle (Oracle APEX / ORDS)</strong>: ambiente aziendale sicuro di TEZ &amp; TEZ in cui i messaggi del modulo vengono ricevuti e archiviati direttamente nel database;</li><li><strong>Fornitori di Hosting e Posta Elettronica</strong>: infrastrutture cloud aziendali impiegate per il mantenimento del sito e la gestione dei messaggi;</li><li><strong>LinkedIn Insight Tag</strong>: tecnologia analitica di LinkedIn Corporation per la misurazione del traffico aziendale e della conversione delle richieste professionali;</li><li><strong>Google Fonts</strong>: fornisce i font tipografici e può registrare l'indirizzo IP del visitatore durante il caricamento.</li>",
       "legal.s5_p2": "Alcuni di tali servizi possono conservare i dati su server situati al di fuori del Brasile. In tali casi, il trasferimento internazionale avviene ai sensi dell'art. 33 della LGPD.",
       "legal.s5_p3": "I dati potranno inoltre essere comunicati ove richiesto dalla legge o da ordini delle competenti autorità.",
       "legal.s6_title": "6. Periodo di conservazione",
@@ -127,12 +133,15 @@ document.addEventListener('DOMContentLoaded', () => {
       "legal.s9_title": "9. Responsabile della protezione dei dati (DPO)",
       "legal.s9_body": "<li><strong>Referente:</strong> Responsabile della Protezione dei Dati — TEZ &amp; TEZ</li><li><strong>Email di contatto:</strong> <a href=\"mailto:contato@te2.com.br\">contato@te2.com.br</a></li>",
       "legal.s10_title": "10. Cookie",
-      "legal.s10_body": "Il presente sito <strong>non utilizza cookie di profilazione, pubblicitari o analitici</strong>. Qualora tale configurazione dovesse mutare in futuro, l'Informativa verrà prontamente aggiornata e sarà richiesto apposito consenso ove previsto.",
+      "legal.s10_body": "Questo sito utilizza cookie strettamente necessari al suo funzionamento e cookie analitici del <strong>LinkedIn Insight Tag</strong> per la misurazione dell'audience aziendale e dell'efficacia delle comunicazioni professionali. Tali cookie non memorizzano dati riservati direttamente identificabili ed è possibile gestire o disabilitare i cookie nelle impostazioni del proprio browser in qualsiasi momento.",
       "legal.s11_title": "11. Modifiche alla presente Informativa",
       "legal.s11_body": "Ci riserviamo il diritto di aggiornare periodicamente la presente Informativa. La data di revisione è indicata in intestazione. Si raccomanda di consultarla ad ogni invio di dati.",
       "legal.foot_copy": "© <span id=\"current-year\">2026</span> TEZ &amp; TEZ · Tecnologia nella Gestione degli Asset. Tutti i diritti riservati.",
       "legal.foot_home": "Home",
-      "legal.foot_contact": "Contatto"
+      "legal.foot_contact": "Contatto",
+      "cookie.text": "Utilizziamo cookie necessari per il funzionamento del sito e analitici (LinkedIn Insight Tag) per analizzare il traffico aziendale. Per saperne di più consulta la nostra <a href=\"politica-de-privacidade.html\">Informativa sulla Privacy</a>.",
+      "cookie.essential": "Solo essenziali",
+      "cookie.accept": "Accetta tutti"
     }
   };
 
@@ -233,4 +242,41 @@ document.addEventListener('DOMContentLoaded', () => {
   if (currentLang !== 'pt') {
     applyTranslations(currentLang);
   }
+
+  // Banner de Consentimento de Cookies LGPD
+  const cookieBanner = document.getElementById('cookie-banner');
+  const cookieBtnAccept = document.getElementById('cookie-btn-accept');
+  const cookieBtnEssential = document.getElementById('cookie-btn-essential');
+
+  if (cookieBanner) {
+    let savedConsent = null;
+    try {
+      savedConsent = localStorage.getItem('tez_cookie_consent');
+    } catch (e) {}
+
+    if (!savedConsent) {
+      cookieBanner.style.display = 'flex';
+      setTimeout(() => {
+        cookieBanner.classList.add('is-visible');
+      }, 600);
+    }
+
+    function setCookieConsent(type) {
+      try {
+        localStorage.setItem('tez_cookie_consent', type);
+      } catch (e) {}
+      cookieBanner.classList.remove('is-visible');
+      setTimeout(() => {
+        cookieBanner.style.display = 'none';
+      }, 400);
+    }
+
+    if (cookieBtnAccept) {
+      cookieBtnAccept.addEventListener('click', () => setCookieConsent('all'));
+    }
+    if (cookieBtnEssential) {
+      cookieBtnEssential.addEventListener('click', () => setCookieConsent('essential'));
+    }
+  }
 });
+
