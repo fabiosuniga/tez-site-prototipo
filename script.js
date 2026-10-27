@@ -125,17 +125,67 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ============================================================
-  // 5. FORM HANDLING — Envio real via Web3Forms
+  // 5. FORM HANDLING & UTM TRACKING — Oracle APEX ORDS
   // ============================================================
+  const APEX_ENDPOINT = 'https://t3z.com.br/ords/desenv/site/contato';
   const contactForm = document.getElementById('contact-form');
   const formStatus = document.getElementById('form-status');
-  const ACCESS_KEY_PLACEHOLDER = 'SUA_ACCESS_KEY_AQUI';
 
-  // Mensagem de fallback com os canais diretos (texto fixo, sem dados do usuário)
-  const FALLBACK_HTML =
-    'Não foi possível enviar agora. Fale conosco pelo ' +
-    '<a href="https://wa.me/5511996027342?text=Ol%C3%A1%2C%20acessei%20o%20site%20da%20TEZ%20%26%20TEZ%20e%20gostaria%20de%20falar%20com%20um%20especialista%20sobre%20gest%C3%A3o%20de%20ativos." target="_blank" rel="noopener noreferrer">WhatsApp</a> ' +
-    'ou pelo e-mail <a href="mailto:contato@te2.com.br">contato@te2.com.br</a>.';
+  // Captura e persistência de parâmetros UTM da URL (LinkedIn, Ads, Campanhas)
+  function initUtmCapture() {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const utmFields = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'];
+      
+      utmFields.forEach(key => {
+        const value = params.get(key);
+        if (value) {
+          sessionStorage.setItem(`tez_${key}`, value);
+        }
+      });
+
+      // Injeta nos campos ocultos do formulário
+      utmFields.forEach(key => {
+        const input = document.getElementById(key);
+        if (input) {
+          input.value = sessionStorage.getItem(`tez_${key}`) || '';
+        }
+      });
+    } catch (e) {
+      console.warn('[UTM] Não foi possível ler parâmetros:', e);
+    }
+  }
+  initUtmCapture();
+
+  const STATUS_MESSAGES = {
+    pt: {
+      sending: 'Enviando...',
+      successBtn: 'Mensagem enviada! ✓',
+      success: 'Mensagem recebida. Um especialista da TEZ & TEZ responde em até um dia útil.',
+      error: 'Não foi possível enviar agora. Fale conosco pelo <a href="https://wa.me/5511996027342?text=Ol%C3%A1%2C%20acessei%20o%20site%20da%20TEZ%20%26%20TEZ%20e%20gostaria%20de%20falar%20com%20um%20especialista%20sobre%20gest%C3%A3o%20de%20ativos." target="_blank" rel="noopener noreferrer">WhatsApp</a> ou pelo e-mail <a href="mailto:contato@te2.com.br">contato@te2.com.br</a>.'
+    },
+    en: {
+      sending: 'Sending...',
+      successBtn: 'Message sent! ✓',
+      success: 'Message received. A TEZ & TEZ specialist will reply within one business day.',
+      error: 'Unable to send at this moment. Reach us via <a href="https://wa.me/5511996027342" target="_blank" rel="noopener noreferrer">WhatsApp</a> or email <a href="mailto:contato@te2.com.br">contato@te2.com.br</a>.'
+    },
+    it: {
+      sending: 'Invio in corso...',
+      successBtn: 'Messaggio inviato! ✓',
+      success: 'Messaggio ricevuto. Uno specialista di TEZ & TEZ risponderà entro un giorno lavorativo.',
+      error: 'Impossibile inviare al momento. Contattaci via <a href="https://wa.me/5511996027342" target="_blank" rel="noopener noreferrer">WhatsApp</a> o via email <a href="mailto:contato@te2.com.br">contato@te2.com.br</a>.'
+    }
+  };
+
+  function getLang() {
+    try {
+      const saved = localStorage.getItem('tez_lang');
+      return ['pt', 'en', 'it'].includes(saved) ? saved : 'pt';
+    } catch (e) {
+      return 'pt';
+    }
+  }
 
   function setStatus(type, html) {
     if (!formStatus) return;
@@ -146,72 +196,168 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (contactForm) {
     const submitBtn = contactForm.querySelector('.form-submit');
-    const originalText = submitBtn.textContent;
+    const originalText = submitBtn ? submitBtn.textContent : 'Enviar mensagem';
 
     function resetButton() {
+      if (!submitBtn) return;
       submitBtn.classList.remove('is-success');
       submitBtn.textContent = originalText;
       submitBtn.disabled = false;
     }
 
-    // O evento "submit" só dispara depois que a validação nativa
-    // (campos required, e-mail válido, consentimento LGPD) passou.
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      // Honeypot: se um bot marcou o campo invisível, finge sucesso e descarta
-      const honeypot = contactForm.querySelector('[name="botcheck"]');
-      if (honeypot && honeypot.checked) {
+      // Honeypot anti-spam: se preenchido por bot, simula sucesso e descarta
+      const honeypot = contactForm.querySelector('[name="website_hp"]');
+      if (honeypot && honeypot.value.trim() !== '') {
         contactForm.reset();
         return;
       }
 
-      const accessKey = contactForm.querySelector('[name="access_key"]')?.value;
-      if (!accessKey || accessKey === ACCESS_KEY_PLACEHOLDER) {
-        console.warn('[Formulário] Configure a Access Key do Web3Forms no index.html (campo "access_key").');
-        setStatus('error', FALLBACK_HTML);
-        return;
-      }
+      const lang = getLang();
+      const msgs = STATUS_MESSAGES[lang] || STATUS_MESSAGES.pt;
 
       // Estado "Enviando…" com spinner
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<span class="spinner" aria-hidden="true"></span> Enviando...';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `<span class="spinner" aria-hidden="true"></span> ${msgs.sending}`;
+      }
       setStatus(null, '');
 
-      const payload = Object.fromEntries(new FormData(contactForm).entries());
+      // Timestamp ISO para conformidade com a LGPD
+      const isoTimestamp = new Date().toISOString();
+      const timestampInput = document.getElementById('consentimento_data_hora');
+      if (timestampInput) timestampInput.value = isoTimestamp;
+
+      // Monta o payload estruturado para o ORDS
+      const payload = {
+        nome: contactForm.querySelector('[name="nome"]')?.value.trim() || '',
+        empresa: contactForm.querySelector('[name="empresa"]')?.value.trim() || '',
+        email: contactForm.querySelector('[name="email"]')?.value.trim() || '',
+        telefone: contactForm.querySelector('[name="telefone"]')?.value.trim() || '',
+        area_interesse: contactForm.querySelector('[name="area_interesse"]')?.value || '',
+        mensagem: contactForm.querySelector('[name="mensagem"]')?.value.trim() || '',
+        consentimento_lgpd: contactForm.querySelector('[name="consentimento_lgpd"]')?.checked ? 'Sim' : 'Não',
+        consentimento_data_hora: isoTimestamp,
+        utm_source: sessionStorage.getItem('tez_utm_source') || '',
+        utm_medium: sessionStorage.getItem('tez_utm_medium') || '',
+        utm_campaign: sessionStorage.getItem('tez_utm_campaign') || '',
+        utm_content: sessionStorage.getItem('tez_utm_content') || ''
+      };
 
       try {
-        const response = await fetch(contactForm.action, {
+        const response = await fetch(APEX_ENDPOINT, {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json'
+            'Content-Type': 'application/json'
           },
           body: JSON.stringify(payload)
         });
+
         const result = await response.json().catch(() => ({}));
 
-        if (!response.ok || !result.success) {
-          throw new Error(result.message || `HTTP ${response.status}`);
+        if (!response.ok || (result.status && result.status !== 'sucesso')) {
+          throw new Error(result.mensagem || `HTTP ${response.status}`);
         }
 
-        submitBtn.classList.add('is-success');
-        submitBtn.textContent = 'Mensagem enviada! ✓';
-        setStatus('success', 'Mensagem recebida. Um especialista da TEZ & TEZ responde em até um dia útil.');
+        // Sucesso visual
+        if (submitBtn) {
+          submitBtn.classList.add('is-success');
+          submitBtn.textContent = msgs.successBtn;
+        }
+        setStatus('success', msgs.success);
         contactForm.reset();
+
+        // Repreenche UTMs nos campos ocultos após o reset
+        initUtmCapture();
+
+        // Dispara evento de conversão no LinkedIn e Analytics (Seção 06)
+        trackEvent('form_submission_success', {
+          area_interesse: payload.area_interesse,
+          origem: payload.utm_source || 'direto'
+        });
+
+        try {
+          window.dispatchEvent(new CustomEvent('tez:lead_submitted', { detail: payload }));
+        } catch (evErr) {}
 
         setTimeout(() => {
           resetButton();
           setStatus(null, '');
-        }, 6000);
+        }, 7000);
 
       } catch (error) {
-        console.error('[Formulário] Falha no envio:', error);
+        console.error('[Formulário APEX] Falha no envio:', error);
         resetButton();
-        setStatus('error', FALLBACK_HTML);
+        setStatus('error', msgs.error);
       }
     });
   }
+
+
+  // ============================================================
+  // 5.5 MEDIÇÃO DE CONVERSÕES E EVENTOS (Seção 06 — LinkedIn & GA4)
+  // ============================================================
+  function trackEvent(eventName, eventData = {}) {
+    // 1. LinkedIn Insight Tag (Partner ID: 560349316)
+    try {
+      if (typeof window.lintrk === 'function') {
+        window.lintrk('track', { conversion_id: 560349316 });
+      }
+    } catch (e) {}
+
+    // 2. Google Analytics 4 (pronto para quando o ID for configurado)
+    try {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', eventName, eventData);
+      }
+    } catch (e) {}
+
+    // 3. Log para validação no Console
+    console.log(`[TEZ Tracking] Evento: ${eventName}`, eventData);
+  }
+
+  // Evento 1: Clique em "Agendar demonstração"
+  document.querySelectorAll('a[href="#contato"], .btn-primary, #hero-cue-demo').forEach(btn => {
+    btn.addEventListener('click', () => {
+      trackEvent('cta_demo_click', { label: btn.textContent.trim() });
+    });
+  });
+
+  // Evento 2: Clique no WhatsApp
+  const waBtn = document.getElementById('whatsapp-float');
+  if (waBtn) {
+    waBtn.addEventListener('click', () => {
+      trackEvent('whatsapp_click', { channel: 'float_button' });
+    });
+  }
+
+  // Evento 3: Clique no E-mail corporativo
+  document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+    link.addEventListener('click', () => {
+      trackEvent('email_click', { email: link.getAttribute('href') });
+    });
+  });
+
+  // Evento 4: Interação com os cartões dos 7 módulos
+  document.querySelectorAll('.module-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const moduleName = card.querySelector('.module-title')?.textContent.trim() || 'modulo';
+      trackEvent('module_interaction', { module: moduleName });
+    });
+  });
+
+  // Evento 5: Rolagem a 75% da página (mostra interesse no conteúdo)
+  let scroll75Sent = false;
+  window.addEventListener('scroll', () => {
+    if (scroll75Sent) return;
+    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if (totalHeight > 0 && (window.scrollY / totalHeight) >= 0.75) {
+      scroll75Sent = true;
+      trackEvent('scroll_75', { depth: '75%' });
+    }
+  }, { passive: true });
 
 
   // ============================================================
