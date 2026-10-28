@@ -370,6 +370,10 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('a[href="#contato"], .btn-primary, #hero-cue-demo').forEach(btn => {
     btn.addEventListener('click', () => {
       trackEvent('cta_demo_click', { label: btn.textContent.trim() });
+      const interestSelect = document.getElementById('contact-interest');
+      if (interestSelect) {
+        interestSelect.value = 'Agendar demonstração';
+      }
     });
   });
 
@@ -720,6 +724,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "cont.form_phone": "Telefone",
       "cont.form_interest": "Área de interesse",
       "cont.opt_default": "Selecione a área de interesse",
+      "cont.opt_demo": "Agendar demonstração",
       "cont.opt_1": "Plataforma TGA",
       "cont.opt_2": "Assessoria e consultoria",
       "cont.opt_3": "Laudo de BRR e fiscalização",
@@ -874,6 +879,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "cont.form_phone": "Phone",
       "cont.form_interest": "Area of Interest",
       "cont.opt_default": "Select your area of interest",
+      "cont.opt_demo": "Schedule a Demo",
       "cont.opt_1": "TGA Platform",
       "cont.opt_2": "Advisory and consulting",
       "cont.opt_3": "RAB appraisal & audit support",
@@ -1028,6 +1034,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "cont.form_phone": "Telefono",
       "cont.form_interest": "Area di Interesse",
       "cont.opt_default": "Seleziona l'area di interesse",
+      "cont.opt_demo": "Prenota una Demo",
       "cont.opt_1": "Piattaforma TGA",
       "cont.opt_2": "Consulenza e supporto",
       "cont.opt_3": "Perizia BRR e supporto ispezioni",
