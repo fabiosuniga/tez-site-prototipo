@@ -1736,10 +1736,6 @@ textarea {
   align-items: center;
   gap: 32px;
   padding: 32px 36px;
-  background:
-    radial-gradient(600px circle at var(--x, 50%) var(--y, 50%), rgba(59, 130, 246, 0.15), transparent 50%),
-    linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95));
-  border: 1px solid rgba(59, 130, 246, 0.3);
 }
 
 .module-transversal-header {
