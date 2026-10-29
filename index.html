@@ -126,7 +126,24 @@
          2. HERO SECTION
          ============================================================ -->
     <section class="hero" id="plataforma">
-      <div class="hero-glow" aria-hidden="true"></div>
+      <!-- Vídeo Cinematográfico de Fundo + Máscara Óptica Direcional -->
+      <div class="hero-media-bg" aria-hidden="true">
+        <video class="hero-bg-video" id="hero-bg-video" autoplay muted loop playsinline preload="auto">
+          <source src="assets/vid/video-tez.mp4" type="video/mp4">
+        </video>
+        <div class="hero-video-scrim"></div>
+      </div>
+
+      <!-- Faixa Vertical Direita — Condutor de Energia Âmbar (Identidade Visual) -->
+      <div class="hero-energy-rail" aria-hidden="true">
+        <div class="hero-energy-sheath">
+          <div class="hero-energy-core">
+            <span class="hero-energy-pulse hero-energy-pulse--primary"></span>
+            <span class="hero-energy-pulse hero-energy-pulse--secondary"></span>
+          </div>
+        </div>
+      </div>
+
       <div class="container">
         <div class="hero-content">
           <div class="hero-badge" data-i18n="hero.badge">
@@ -164,16 +181,6 @@
               </svg><span data-i18n="hero.cta_platform">Conhecer a Plataforma TGA</span></a>
           </div>
         </div>
-
-        <div class="hero-visual">
-          <div class="hero-media-wrapper" id="hero-media-wrapper">
-            <div class="hero-media-frame">
-              <img src="assets/img/infraestrutura-hero.jpg"
-                alt="Infraestrutura de transmissão e redes elétricas reguladas — TEZ &amp; TEZ" class="hero-media-img"
-                width="1920" height="1080" fetchpriority="high">
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -186,7 +193,7 @@
         <div class="number-item">
           <div class="number-value">
             <span class="number-prefix-badge" data-i18n="num.since">Desde</span>
-            <span>1993</span>
+            <span>2009</span>
           </div>
           <div class="number-label" data-i18n="num.years">Atuação no setor regulado</div>
         </div>
@@ -222,9 +229,16 @@
       <div class="container">
         <div class="about-content">
           <span class="section-label reveal" data-i18n="about.label">Quem somos</span>
-          <h2 class="section-title reveal reveal-delay-1" data-i18n="about.title">Tecnologia própria e uma equipe que conhece a regulação</h2>
-          <p class="about-text reveal reveal-delay-2" data-i18n="about.p1">A TEZ &amp; TEZ é uma empresa de tecnologia em gestão de ativos. Desenvolve a Plataforma TGA e presta assessoria e consultoria a empresas de infraestrutura regulada: distribuição e transmissão de energia, gás canalizado e saneamento. Desde 1993, a equipe trabalha com inventário, conciliação, bases regulatórias e base de remuneração, do campo à contabilidade.</p>
-          <p class="about-text reveal reveal-delay-2" data-i18n="about.p2">A base de tudo é a <strong>Conciliação Quádrupla</strong>, entre inventário, projeto, físico e contábil: é ela que identifica sobras, faltas e divergências patrimoniais e sustenta a base de ativos em auditorias e revisões tarifárias.</p>
+          <h2 class="section-title reveal reveal-delay-1" data-i18n="about.title">Tecnologia própria e uma equipe que
+            conhece a regulação</h2>
+          <p class="about-text reveal reveal-delay-2" data-i18n="about.p1">A TEZ &amp; TEZ é uma empresa de tecnologia
+            em gestão de ativos. Desenvolve a Plataforma TGA e presta assessoria e consultoria a empresas de
+            infraestrutura regulada: distribuição e transmissão de energia, gás canalizado e saneamento. Temos
+            profissionais com mais de 33 anos de experiência, a equipe trabalha com inventário, conciliação, bases
+            regulatórias e base de remuneração, do campo à contabilidade.</p>
+          <p class="about-text reveal reveal-delay-2" data-i18n="about.p2">A base de tudo é a <strong>Conciliação
+              Quádrupla</strong>, entre inventário, projeto, físico e contábil: é ela que identifica sobras, faltas e
+            divergências patrimoniais e sustenta a base de ativos em auditorias e revisões tarifárias.</p>
 
           <div class="conciliation-grid reveal reveal-delay-3">
             <div class="conciliation-item" tabindex="0" data-node="inventario" aria-describedby="tip-inventario">
@@ -238,7 +252,9 @@
                 </svg>
               </div>
               <span class="conciliation-name" data-i18n="about.node_inv">Inventário</span>
-              <div class="conciliation-tooltip" role="tooltip" id="tip-inventario" data-i18n="about.tip_inv">Levantamento e codificação de todos os ativos em campo conforme o padrão MCPSE, com registro fotográfico e relatórios integrados.</div>
+              <div class="conciliation-tooltip" role="tooltip" id="tip-inventario" data-i18n="about.tip_inv">
+                Levantamento e codificação de todos os ativos em campo conforme o padrão MCPSE, com registro fotográfico
+                e relatórios integrados.</div>
             </div>
             <div class="conciliation-item" tabindex="0" data-node="projeto" aria-describedby="tip-projeto">
               <div class="conciliation-icon">
@@ -249,7 +265,9 @@
                 </svg>
               </div>
               <span class="conciliation-name" data-i18n="about.node_proj">Projeto</span>
-              <div class="conciliation-tooltip" role="tooltip" id="tip-projeto" data-i18n="about.tip_proj">Validação dos dados de projeto de engenharia, para que cada ativo esteja documentado e alinhado com as especificações originais da obra.</div>
+              <div class="conciliation-tooltip" role="tooltip" id="tip-projeto" data-i18n="about.tip_proj">Validação dos
+                dados de projeto de engenharia, para que cada ativo esteja documentado e alinhado com as especificações
+                originais da obra.</div>
             </div>
             <div class="conciliation-item" tabindex="0" data-node="fisico" aria-describedby="tip-fisico">
               <div class="conciliation-icon">
@@ -260,7 +278,9 @@
                 </svg>
               </div>
               <span class="conciliation-name" data-i18n="about.node_fis">Físico</span>
-              <div class="conciliation-tooltip" role="tooltip" id="tip-fisico" data-i18n="about.tip_fis">Verificação presencial em subestações, usinas e linhas de transmissão para confirmar a existência, localização e estado real de cada ativo.</div>
+              <div class="conciliation-tooltip" role="tooltip" id="tip-fisico" data-i18n="about.tip_fis">Verificação
+                presencial em subestações, usinas e linhas de transmissão para confirmar a existência, localização e
+                estado real de cada ativo.</div>
             </div>
             <div class="conciliation-item" tabindex="0" data-node="contabil" aria-describedby="tip-contabil">
               <div class="conciliation-icon">
@@ -271,7 +291,9 @@
                 </svg>
               </div>
               <span class="conciliation-name" data-i18n="about.node_cont">Contábil</span>
-              <div class="conciliation-tooltip" role="tooltip" id="tip-contabil" data-i18n="about.tip_cont">Batimento dos registros contábeis do ativo imobilizado, identificando sobras, faltas e divergências patrimoniais para conformidade regulatória.</div>
+              <div class="conciliation-tooltip" role="tooltip" id="tip-contabil" data-i18n="about.tip_cont">Batimento
+                dos registros contábeis do ativo imobilizado, identificando sobras, faltas e divergências patrimoniais
+                para conformidade regulatória.</div>
             </div>
           </div>
         </div>
@@ -331,8 +353,10 @@
       <div class="container">
         <div class="segments-header">
           <span class="section-label reveal" data-i18n="seg.label">Segmentos prioritários</span>
-          <h2 class="section-title reveal reveal-delay-1" data-i18n="seg.title">Quatro segmentos, uma base de ativos confiável</h2>
-          <p class="section-subtitle reveal reveal-delay-2" data-i18n="seg.subtitle">Tecnologia em nuvem e assessoria técnica especializada adaptadas às regras de cada órgão regulador.</p>
+          <h2 class="section-title reveal reveal-delay-1" data-i18n="seg.title">Quatro segmentos, uma base de ativos
+            confiável</h2>
+          <p class="section-subtitle reveal reveal-delay-2" data-i18n="seg.subtitle">Tecnologia em nuvem e assessoria
+            técnica especializada adaptadas às regras de cada órgão regulador.</p>
         </div>
 
         <div class="segments-grid">
@@ -345,16 +369,19 @@
               </svg>
             </div>
             <h3 class="segment-title"><span data-i18n="seg.c1_title">Distribuição</span></h3>
-            <p class="segment-lead"><span data-i18n="seg.c1_sub">Da obra à BDGD, com dados conciliados e validados.</span></p>
+            <p class="segment-lead"><span data-i18n="seg.c1_sub">Da obra à BDGD, com dados conciliados e
+                validados.</span></p>
             <p class="segment-description"><span data-i18n="seg.c1_desc">
-              Módulos da Plataforma TGA para obras, movimentação do imobilizado, conciliação físico-contábil, validação
-              da BDGD e cálculo da BRR, com apoio da equipe TEZ &amp; TEZ.
-            </span></p>
+                Módulos da Plataforma TGA para obras, movimentação do imobilizado, conciliação físico-contábil,
+                validação
+                da BDGD e cálculo da BRR, com apoio da equipe TEZ &amp; TEZ.
+              </span></p>
             <div class="segment-tag">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <polyline points="20 6 9 17 4 12"></polyline>
-              </svg><span data-i18n="seg.c1_tag">Setor Elétrico · ANEEL</span></div>
+              </svg><span data-i18n="seg.c1_tag">Setor Elétrico · ANEEL</span>
+            </div>
           </div>
 
           <!-- Segmento 2: Transmissão -->
@@ -369,16 +396,18 @@
               </svg>
             </div>
             <h3 class="segment-title"><span data-i18n="seg.c2_title">Transmissão</span></h3>
-            <p class="segment-lead"><span data-i18n="seg.c2_sub">Cadastro e BDIT validados para o envio ao ONS.</span></p>
+            <p class="segment-lead"><span data-i18n="seg.c2_sub">Cadastro e BDIT validados para o envio ao ONS.</span>
+            </p>
             <p class="segment-description"><span data-i18n="seg.c2_desc">
-              AXON valida a BDIT e apoia o envio ao ONS. ELO concilia o cadastro técnico e os registros contábeis. A
-              equipe acompanha a implantação e as análises.
-            </span></p>
+                AXON valida a BDIT e apoia o envio ao ONS. ELO concilia o cadastro técnico e os registros contábeis. A
+                equipe acompanha a implantação e as análises.
+              </span></p>
             <div class="segment-tag">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <polyline points="20 6 9 17 4 12"></polyline>
-              </svg><span data-i18n="seg.c2_tag">Alta Tensão · ONS / ANEEL</span></div>
+              </svg><span data-i18n="seg.c2_tag">Alta Tensão · ONS / ANEEL</span>
+            </div>
           </div>
 
           <!-- Segmento 3: Gás canalizado -->
@@ -392,16 +421,19 @@
               </svg>
             </div>
             <h3 class="segment-title"><span data-i18n="seg.c3_title">Gás canalizado</span></h3>
-            <p class="segment-lead"><span data-i18n="seg.c3_sub">Base de ativos da rede de gás com dados confiáveis e histórico rastreável.</span></p>
+            <p class="segment-lead"><span data-i18n="seg.c3_sub">Base de ativos da rede de gás com dados confiáveis e
+                histórico rastreável.</span></p>
             <p class="segment-description"><span data-i18n="seg.c3_desc">
-              Equipe com experiência em utilities de energia, água e gás, apoiada por tecnologia própria para organizar
-              a base de ativos, do cadastro à contabilidade.
-            </span></p>
+                Equipe com experiência em utilities de energia, água e gás, apoiada por tecnologia própria para
+                organizar
+                a base de ativos, do cadastro à contabilidade.
+              </span></p>
             <div class="segment-tag">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <polyline points="20 6 9 17 4 12"></polyline>
-              </svg><span data-i18n="seg.c3_tag">Utilities de Gás</span></div>
+              </svg><span data-i18n="seg.c3_tag">Utilities de Gás</span>
+            </div>
           </div>
 
           <!-- Segmento 4: Saneamento -->
@@ -413,16 +445,18 @@
               </svg>
             </div>
             <h3 class="segment-title"><span data-i18n="seg.c4_title">Saneamento</span></h3>
-            <p class="segment-lead"><span data-i18n="seg.c4_sub">Ativos de água e esgoto com dados confiáveis, do campo à decisão.</span></p>
+            <p class="segment-lead"><span data-i18n="seg.c4_sub">Ativos de água e esgoto com dados confiáveis, do campo
+                à decisão.</span></p>
             <p class="segment-description"><span data-i18n="seg.c4_desc">
-              Base de ativos conciliada e histórico das movimentações para companhias de saneamento, com apoio às
-              exigências regulatórias do setor.
-            </span></p>
+                Base de ativos conciliada e histórico das movimentações para companhias de saneamento, com apoio às
+                exigências regulatórias do setor.
+              </span></p>
             <div class="segment-tag">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <polyline points="20 6 9 17 4 12"></polyline>
-              </svg><span data-i18n="seg.c4_tag">Água e Esgoto</span></div>
+              </svg><span data-i18n="seg.c4_tag">Água e Esgoto</span>
+            </div>
           </div>
         </div>
       </div>
@@ -437,7 +471,9 @@
         <div class="platform-header">
           <span class="section-label reveal" data-i18n="plat.label">Plataforma TGA</span>
           <h2 class="section-title reveal reveal-delay-1" data-i18n="plat.title">Sete módulos para o ciclo do ativo</h2>
-          <p class="section-subtitle reveal reveal-delay-2" data-i18n="plat.subtitle">Plataforma SaaS em nuvem, com arquitetura Oracle, multiusuário e multiempresa. Cada módulo responde a uma etapa da gestão da base de ativos; a equipe TEZ &amp; TEZ acompanha a implantação e as análises.</p>
+          <p class="section-subtitle reveal reveal-delay-2" data-i18n="plat.subtitle">Plataforma SaaS em nuvem, com
+            arquitetura Oracle, multiusuário e multiempresa. Cada módulo responde a uma etapa da gestão da base de
+            ativos; a equipe TEZ &amp; TEZ acompanha a implantação e as análises.</p>
         </div>
 
         <div class="platform-grid">
@@ -453,9 +489,9 @@
             </div>
             <h3 class="module-name">OPUS</h3>
             <p class="module-description"><span data-i18n="plat.m1_desc">
-              Gestão de obras. Registra a obra desde o início no padrão que a base de ativos vai exigir, com validação
-              regulatória.
-            </span></p>
+                Gestão de obras. Registra a obra desde o início no padrão que a base de ativos vai exigir, com validação
+                regulatória.
+              </span></p>
             <div class="module-tags">
               <span data-i18n="plat.m1_t1">Gestão de Obras</span>
               <span data-i18n="plat.m1_t2">Padrão Regulatório</span>
@@ -476,8 +512,8 @@
             </div>
             <h3 class="module-name">KINESIS</h3>
             <p class="module-description"><span data-i18n="plat.m2_desc">
-              Movimentação do imobilizado. Rastreia adições, baixas e transferências do ativo imobilizado em serviço.
-            </span></p>
+                Movimentação do imobilizado. Rastreia adições, baixas e transferências do ativo imobilizado em serviço.
+              </span></p>
             <div class="module-tags">
               <span data-i18n="plat.m2_t1">Adições &amp; Baixas</span>
               <span data-i18n="plat.m2_t2">Ativo em Serviço</span>
@@ -495,9 +531,9 @@
             </div>
             <h3 class="module-name">ELO</h3>
             <p class="module-description"><span data-i18n="plat.m3_desc">
-              Conciliação físico-contábil. Concilia campo, cadastro e contabilidade e mantém o histórico das
-              divergências tratadas, com relatórios de conciliação.
-            </span></p>
+                Conciliação físico-contábil. Concilia campo, cadastro e contabilidade e mantém o histórico das
+                divergências tratadas, com relatórios de conciliação.
+              </span></p>
             <div class="module-tags">
               <span data-i18n="plat.m3_t1">Físico × Contábil</span>
               <span data-i18n="plat.m3_t2">Relatórios de Conciliação</span>
@@ -516,8 +552,8 @@
             </div>
             <h3 class="module-name">VERTEX</h3>
             <p class="module-description"><span data-i18n="plat.m4_desc">
-              Validação da BDGD. Valida a base geográfica antes do envio à ANEEL, com checagem de entidades.
-            </span></p>
+                Validação da BDGD. Valida a base geográfica antes do envio à ANEEL, com checagem de entidades.
+              </span></p>
             <div class="module-tags">
               <span data-i18n="plat.m4_t1">Validação BDGD</span>
               <span data-i18n="plat.m4_t2">Checagem ANEEL</span>
@@ -537,8 +573,8 @@
             </div>
             <h3 class="module-name">AXON</h3>
             <p class="module-description"><span data-i18n="plat.m5_desc">
-              Hub ONS/BDIT. Valida a BDIT e apoia o envio ao ONS, com exportação em vários formatos.
-            </span></p>
+                Hub ONS/BDIT. Valida a BDIT e apoia o envio ao ONS, com exportação em vários formatos.
+              </span></p>
             <div class="module-tags">
               <span data-i18n="plat.m5_t1">Validação BDIT</span>
               <span data-i18n="plat.m5_t2">Hub ONS</span>
@@ -564,9 +600,9 @@
             </div>
             <h3 class="module-name">QUANTUM</h3>
             <p class="module-description"><span data-i18n="plat.m6_desc">
-              Cálculo da BRR. Calcula a base de remuneração regulatória com memória auditável e apoia a elaboração de
-              laudos.
-            </span></p>
+                Cálculo da BRR. Calcula a base de remuneração regulatória com memória auditável e apoia a elaboração de
+                laudos.
+              </span></p>
             <div class="module-tags">
               <span data-i18n="plat.m6_t1">Base de Remuneração</span>
               <span data-i18n="plat.m6_t2">Memória Auditável</span>
@@ -588,9 +624,9 @@
               </div>
             </div>
             <p class="module-description"><span data-i18n="plat.m7_desc">
-              Automação de fluxos. Automatiza fluxos de trabalho entre as etapas, com rastreamento de tarefas e gestão
-              de evidências.
-            </span></p>
+                Automação de fluxos. Automatiza fluxos de trabalho entre as etapas, com rastreamento de tarefas e gestão
+                de evidências.
+              </span></p>
             <div class="module-tags">
               <span data-i18n="plat.m7_t1">Automação de Fluxos</span>
               <span data-i18n="plat.m7_t2">Rastreamento de Tarefas</span>
@@ -609,8 +645,10 @@
       <div class="container">
         <div class="services-header">
           <span class="section-label reveal" data-i18n="serv.label">Assessoria e consultoria</span>
-          <h2 class="section-title reveal reveal-delay-1" data-i18n="serv.title">Assessoria e consultoria em gestão de ativos</h2>
-          <p class="section-subtitle reveal reveal-delay-2" data-i18n="serv.subtitle">Serviços que preparam a base de ativos e sustentam a plataforma: do levantamento de campo ao atendimento à fiscalização.</p>
+          <h2 class="section-title reveal reveal-delay-1" data-i18n="serv.title">Assessoria e consultoria em gestão de
+            ativos</h2>
+          <p class="section-subtitle reveal reveal-delay-2" data-i18n="serv.subtitle">Serviços que preparam a base de
+            ativos e sustentam a plataforma: do levantamento de campo ao atendimento à fiscalização.</p>
         </div>
 
         <div class="services-grid">
@@ -623,11 +661,13 @@
                 <circle cx="12" cy="10" r="3"></circle>
               </svg>
             </div>
-            <h3 class="service-title"><span data-i18n="serv.s1_title">Inventário físico e levantamento de campo</span></h3>
+            <h3 class="service-title"><span data-i18n="serv.s1_title">Inventário físico e levantamento de campo</span>
+            </h3>
             <p class="service-description"><span data-i18n="serv.s1_desc">
-              Vistoria técnica em subestações, usinas e linhas, com codificação MCPSE, registro fotográfico e relatórios
-              integrados. Garantia de acurácia para a regularização dos dados.
-            </span></p>
+                Vistoria técnica em subestações, usinas e linhas, com codificação MCPSE, registro fotográfico e
+                relatórios
+                integrados. Garantia de acurácia para a regularização dos dados.
+              </span></p>
           </div>
 
           <!-- Card 2: Conciliação Quádrupla -->
@@ -642,9 +682,9 @@
             </div>
             <h3 class="service-title"><span data-i18n="serv.s2_title">Conciliação Quádrupla</span></h3>
             <p class="service-description"><span data-i18n="serv.s2_desc">
-              Alinhamento entre inventário, projeto, físico e contábil para identificar sobras, faltas e divergências
-              patrimoniais, corrigir a base de ativos e preparar auditorias.
-            </span></p>
+                Alinhamento entre inventário, projeto, físico e contábil para identificar sobras, faltas e divergências
+                patrimoniais, corrigir a base de ativos e preparar auditorias.
+              </span></p>
           </div>
 
           <!-- Card 3: Apoio à Fiscalização -->
@@ -657,9 +697,9 @@
             </div>
             <h3 class="service-title"><span data-i18n="serv.s3_title">Apoio à fiscalização da ANEEL (SFF)</span></h3>
             <p class="service-description"><span data-i18n="serv.s3_desc">
-              Suporte técnico nas fiscalizações, com foco na Base de Remuneração Regulatória (BRR), organização das
-              evidências e atendimento às exigências do processo.
-            </span></p>
+                Suporte técnico nas fiscalizações, com foco na Base de Remuneração Regulatória (BRR), organização das
+                evidências e atendimento às exigências do processo.
+              </span></p>
           </div>
 
           <!-- Card 4: Gestão de Dados -->
@@ -673,14 +713,15 @@
             </div>
             <h3 class="service-title"><span data-i18n="serv.s4_title">Gestão de dados e informações</span></h3>
             <p class="service-description"><span data-i18n="serv.s4_desc">
-              Diagnóstico e auditoria de bancos de dados de ativos, com governança e rastreabilidade das informações.
-            </span></p>
+                Diagnóstico e auditoria de bancos de dados de ativos, com governança e rastreabilidade das informações.
+              </span></p>
           </div>
         </div>
 
         <!-- Linha final institucional -->
         <div class="services-footer-banner reveal reveal-delay-2">
-          <p class="services-footer-text" data-i18n="serv.banner">Consultoria regulatória estratégica e assessoria em gestão da BRR, conformidade de ativos e cadastro operacional, conforme o escopo de cada proposta.</p>
+          <p class="services-footer-text" data-i18n="serv.banner">Consultoria regulatória estratégica e assessoria em
+            gestão da BRR, conformidade de ativos e cadastro operacional, conforme o escopo de cada proposta.</p>
         </div>
       </div>
     </section>
@@ -693,8 +734,11 @@
       <div class="container">
         <div class="compliance-header">
           <span class="section-label reveal" data-i18n="comp.label">Conformidade</span>
-          <h2 class="section-title reveal reveal-delay-1" data-i18n="comp.title">Normativos que a plataforma e os serviços seguem</h2>
-          <p class="section-subtitle reveal reveal-delay-2" data-i18n="comp.subtitle">A Plataforma TGA e os serviços da TEZ &amp; TEZ seguem o Manual de Controle Patrimonial do Setor Elétrico (MCPSE) da ANEEL e os normativos aplicáveis a cada segmento.</p>
+          <h2 class="section-title reveal reveal-delay-1" data-i18n="comp.title">Normativos que a plataforma e os
+            serviços seguem</h2>
+          <p class="section-subtitle reveal reveal-delay-2" data-i18n="comp.subtitle">A Plataforma TGA e os serviços da
+            TEZ &amp; TEZ seguem o Manual de Controle Patrimonial do Setor Elétrico (MCPSE) da ANEEL e os normativos
+            aplicáveis a cada segmento.</p>
         </div>
 
         <div class="compliance-badges reveal reveal-delay-3 notranslate" translate="no">
@@ -757,15 +801,7 @@
             </svg>
             BRR
           </div>
-        </div>
 
-        <p class="compliance-text reveal reveal-delay-4" data-i18n="comp.compliance_text">
-          Fomos credenciadas na ANEEL para elaboração de laudos da Base de Remuneração Regulatória (BRR) e apoio à
-          fiscalização (SFF), a TEZ & TEZ garante total aderência ao Manual de Controle Patrimonial do Setor Elétrico
-          (MCPSE), a PRORET, ao PRODIST (BDGD – DDA) da ANEEL e BDIT (DDO) da ONS em todos os seus processos com suas
-          soluções
-        </p>
-      </div>
     </section>
 
 
@@ -777,7 +813,8 @@
         <div class="faq-header">
           <span class="section-label reveal" data-i18n="faq.label">Perguntas frequentes</span>
           <h2 class="section-title reveal reveal-delay-1" data-i18n="faq.title">Perguntas frequentes</h2>
-          <p class="section-subtitle reveal reveal-delay-2" data-i18n="faq.subtitle">Respostas diretas sobre metodologia, integração e atendimento regulatório.</p>
+          <p class="section-subtitle reveal reveal-delay-2" data-i18n="faq.subtitle">Respostas diretas sobre
+            metodologia, integração e atendimento regulatório.</p>
         </div>
         <div class="faq-list reveal reveal-delay-3" itemscope itemtype="https://schema.org/FAQPage">
           <!-- 1. Conciliação Quádrupla -->
@@ -791,9 +828,10 @@
             </button>
             <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
               <div class="faq-answer-inner" itemprop="text">
-                <p><span data-i18n="faq.a1">É o alinhamento entre o inventário físico de campo, as especificações de projeto, a situação
-                  encontrada em campo e os registros contábeis. Ela identifica sobras, faltas e divergências
-                  patrimoniais e deixa a base de ativos pronta para auditorias e revisões tarifárias.</span></p>
+                <p><span data-i18n="faq.a1">É o alinhamento entre o inventário físico de campo, as especificações de
+                    projeto, a situação
+                    encontrada em campo e os registros contábeis. Ela identifica sobras, faltas e divergências
+                    patrimoniais e deixa a base de ativos pronta para auditorias e revisões tarifárias.</span></p>
               </div>
             </div>
           </div>
@@ -801,7 +839,8 @@
           <!-- 2. Normativos -->
           <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
             <button class="faq-question" aria-expanded="false">
-              <span itemprop="name"><span data-i18n="faq.q2">Quais normativos a Plataforma TGA e os serviços atendem?</span></span>
+              <span itemprop="name"><span data-i18n="faq.q2">Quais normativos a Plataforma TGA e os serviços
+                  atendem?</span></span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round" aria-hidden="true">
                 <polyline points="6 9 12 15 18 9"></polyline>
@@ -809,9 +848,10 @@
             </button>
             <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
               <div class="faq-answer-inner" itemprop="text">
-                <p><span data-i18n="faq.a2">O Manual de Controle Patrimonial do Setor Elétrico (MCPSE), o PRODIST, o PRORET, as exigências da
-                  ANEEL para a Base de Remuneração Regulatória (BRR) e para a fiscalização, e os procedimentos do ONS
-                  para a BDIT.</span></p>
+                <p><span data-i18n="faq.a2">O Manual de Controle Patrimonial do Setor Elétrico (MCPSE), o PRODIST, o
+                    PRORET, as exigências da
+                    ANEEL para a Base de Remuneração Regulatória (BRR) e para a fiscalização, e os procedimentos do ONS
+                    para a BDIT.</span></p>
               </div>
             </div>
           </div>
@@ -819,7 +859,8 @@
           <!-- 3. Integração ERP -->
           <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
             <button class="faq-question" aria-expanded="false">
-              <span itemprop="name"><span data-i18n="faq.q3">A Plataforma TGA se integra ao nosso ERP (SAP, Oracle)?</span></span>
+              <span itemprop="name"><span data-i18n="faq.q3">A Plataforma TGA se integra ao nosso ERP (SAP,
+                  Oracle)?</span></span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round" aria-hidden="true">
                 <polyline points="6 9 12 15 18 9"></polyline>
@@ -827,26 +868,10 @@
             </button>
             <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
               <div class="faq-answer-inner" itemprop="text">
-                <p><span data-i18n="faq.a3">Sim. A plataforma roda em nuvem com arquitetura Oracle e se integra aos principais ERPs do mercado,
-                  como SAP e Oracle. O escopo da integração é definido com a equipe de TI do cliente em cada projeto.
-                </span></p>
-              </div>
-            </div>
-          </div>
-
-          <!-- 4. Prazo BRR -->
-          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <button class="faq-question" aria-expanded="false">
-              <span itemprop="name"><span data-i18n="faq.q4">Qual o prazo para um laudo de Base de Remuneração Regulatória (BRR)?</span></span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" aria-hidden="true">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </button>
-            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-              <div class="faq-answer-inner" itemprop="text">
-                <p><span data-i18n="faq.a4">Depende do volume de ativos e da complexidade do levantamento de campo. Em uma conversa inicial,
-                  avaliamos o escopo e apresentamos um cronograma para a sua empresa.</span></p>
+                <p><span data-i18n="faq.a3">Sim. A plataforma roda em nuvem com arquitetura Oracle e se integra aos
+                    principais ERPs do mercado,
+                    como SAP e Oracle. O escopo da integração é definido com a equipe de TI do cliente em cada projeto.
+                  </span></p>
               </div>
             </div>
           </div>
@@ -864,7 +889,8 @@
           <span class="section-label section-label--light reveal" data-i18n="cont.label">Fale conosco</span>
           <h2 class="section-title reveal reveal-delay-1" data-i18n="cont.title">Fale com um especialista</h2>
           <p class="section-subtitle reveal reveal-delay-2" data-i18n="cont.subtitle">
-            Agende uma demonstração da Plataforma TGA e veja como organizar a base de ativos da sua empresa, do campo à decisão.
+            Agende uma demonstração da Plataforma TGA e veja como organizar a base de ativos da sua empresa, do campo à
+            decisão.
           </p>
 
           <div class="contact-details reveal reveal-delay-3">
@@ -902,33 +928,17 @@
                 </div>
               </div>
             </div>
-
-            <div class="contact-detail">
-              <div class="contact-detail-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" aria-hidden="true">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-              </div>
-              <div>
-                <div class="contact-detail-label" data-i18n="cont.addr_label">Endereço</div>
-                <div class="contact-detail-value notranslate" translate="no">
-                  Av. Marcelo Stefani, 15 - Módulo 139 sala 103
-                </div>
-                <div class="contact-detail-sub notranslate" translate="no">Jardim Nova Bragança · Bragança Paulista - SP
-                  · CEP 12914-470</div>
-              </div>
-            </div>
           </div>
 
           <!-- Card de Mapa Google Integrado -->
           <div class="contact-map-card reveal reveal-delay-4">
-            <iframe class="contact-map-frame"
-              src="https://maps.google.com/maps?q=Av.+Marcelo+Stefani,+15+-+Jardim+Nova+Bragan%C3%A7a,+Bragan%C3%A7a+Paulista+-+SP&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
-              width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade" title="Localização da TEZ &amp; TEZ no Google Maps">
-            </iframe>
+            <div class="contact-map-frame-wrap">
+              <iframe class="contact-map-frame"
+                src="https://maps.google.com/maps?q=Av.+Marcelo+Stefani,+15+-+Jardim+Nova+Bragan%C3%A7a,+Bragan%C3%A7a+Paulista+-+SP&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+                style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade" title="Localiza??o da TEZ &amp; TEZ no Google Maps">
+              </iframe>
+            </div>
             <div class="contact-map-footer">
               <span class="contact-map-pin">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -954,30 +964,31 @@
         </div>
 
         <!-- Envio via Oracle APEX ORDS -->
-        <form class="contact-form reveal reveal-delay-2" id="contact-form" action="https://t3z.com.br/ords/desenv/site/contato"
-          method="POST">
+        <form class="contact-form reveal reveal-delay-2" id="contact-form"
+          action="https://t3z.com.br/ords/desenv/site/contato" method="POST">
           <!-- Campos Ocultos de Rastreamento (UTMs e Auditoria LGPD) -->
           <input type="hidden" id="utm_source" name="utm_source" value="">
           <input type="hidden" id="utm_medium" name="utm_medium" value="">
           <input type="hidden" id="utm_campaign" name="utm_campaign" value="">
           <input type="hidden" id="utm_content" name="utm_content" value="">
           <input type="hidden" id="consentimento_data_hora" name="consentimento_data_hora" value="">
-          
+
           <!-- Honeypot anti-spam: invisível para pessoas, bots costumam preencher -->
-          <input type="text" name="website_hp" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none !important;">
+          <input type="text" name="website_hp" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true"
+            style="display:none !important;">
 
           <div class="form-grid">
             <div class="form-group">
-              <label class="form-label" for="contact-name"><span data-i18n="cont.form_name">Nome</span> <span class="required"
-                  aria-hidden="true">*</span></label>
+              <label class="form-label" for="contact-name"><span data-i18n="cont.form_name">Nome</span> <span
+                  class="required" aria-hidden="true">*</span></label>
               <div class="input-wrap">
                 <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                   <circle cx="12" cy="7" r="4"></circle>
                 </svg>
-                <input type="text" class="form-input" id="contact-name" name="nome" placeholder="Seu nome completo" data-i18n-ph="cont.ph_name"
-                  autocomplete="name" required>
+                <input type="text" class="form-input" id="contact-name" name="nome" placeholder="Seu nome completo"
+                  data-i18n-ph="cont.ph_name" autocomplete="name" required>
               </div>
               <span class="form-error">Informe seu nome.</span>
             </div>
@@ -989,12 +1000,14 @@
                   <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
                   <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
                 </svg>
-                <input type="text" class="form-input" id="contact-company" name="empresa" placeholder="Nome da concessionária ou empresa" data-i18n-ph="cont.ph_company" autocomplete="organization">
+                <input type="text" class="form-input" id="contact-company" name="empresa"
+                  placeholder="Nome da concessionária ou empresa" data-i18n-ph="cont.ph_company"
+                  autocomplete="organization">
               </div>
             </div>
             <div class="form-group">
-              <label class="form-label" for="contact-email"><span data-i18n="cont.form_email">E-mail</span> <span class="required"
-                  aria-hidden="true">*</span></label>
+              <label class="form-label" for="contact-email"><span data-i18n="cont.form_email">E-mail</span> <span
+                  class="required" aria-hidden="true">*</span></label>
               <div class="input-wrap">
                 <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1027,11 +1040,13 @@
                   <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
                 </svg>
                 <select class="form-input" id="contact-interest" name="area_interesse">
-                  <option value="" disabled selected hidden data-i18n="cont.opt_default">Selecione a área de interesse</option>
+                  <option value="" disabled selected hidden data-i18n="cont.opt_default">Selecione a área de interesse
+                  </option>
                   <option value="Agendar demonstração" data-i18n="cont.opt_demo">Agendar demonstração</option>
                   <option value="Plataforma TGA" data-i18n="cont.opt_1">Plataforma TGA</option>
                   <option value="Assessoria e consultoria" data-i18n="cont.opt_2">Assessoria e consultoria</option>
-                  <option value="Laudo de BRR e fiscalização" data-i18n="cont.opt_3">Laudo de BRR e fiscalização</option>
+                  <option value="Laudo de BRR e fiscalização" data-i18n="cont.opt_3">Laudo de BRR e fiscalização
+                  </option>
                   <option value="Outro assunto" data-i18n="cont.opt_4">Outro assunto</option>
                 </select>
               </div>
@@ -1054,13 +1069,16 @@
           <div class="form-consent">
             <input type="checkbox" id="contact-consent" name="consentimento_lgpd" value="Sim" required>
             <label for="contact-consent">
-              <span data-i18n="cont.form_consent">Concordo com o tratamento dos meus dados para retorno deste contato, conforme a <a href="politica-de-privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>.</span>
+              <span data-i18n="cont.form_consent">Concordo com o tratamento dos meus dados para retorno deste contato,
+                conforme a <a href="politica-de-privacidade.html" target="_blank" rel="noopener">Política de
+                  Privacidade</a>.</span>
               <span class="required" aria-hidden="true">*</span>
             </label>
             <span class="form-error">É necessário aceitar para enviar.</span>
           </div>
 
-          <button type="submit" class="form-submit" id="form-submit" data-i18n="cont.form_submit">Enviar mensagem</button>
+          <button type="submit" class="form-submit" id="form-submit" data-i18n="cont.form_submit">Enviar
+            mensagem</button>
           <p class="form-feedback" id="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -1126,7 +1144,8 @@
       </div>
 
       <div class="footer-bottom">
-        <p class="footer-copy" data-i18n="foot.copy">© <span id="current-year">2026</span> TEZ &amp; TEZ · Tecnologia em Gestão de Ativos. Todos os direitos reservados.</p>
+        <p class="footer-copy" data-i18n="foot.copy">© <span id="current-year">2026</span> TEZ &amp; TEZ · Tecnologia em
+          Gestão de Ativos. Todos os direitos reservados.</p>
         <div class="footer-bottom-badges notranslate" translate="no">
           <span>MCPSE</span>
           <span aria-hidden="true" class="bullet">&bull;</span>
@@ -1162,25 +1181,30 @@
     window._linkedin_data_partner_ids.push(_linkedin_partner_id);
   </script>
   <script type="text/javascript">
-    (function(l) {
-      if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
-      window.lintrk.q=[]}
+    (function (l) {
+      if (!l) {
+        window.lintrk = function (a, b) { window.lintrk.q.push([a, b]) };
+        window.lintrk.q = []
+      }
       var s = document.getElementsByTagName("script")[0];
       var b = document.createElement("script");
-      b.type = "text/javascript";b.async = true;
+      b.type = "text/javascript"; b.async = true;
       b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
       s.parentNode.insertBefore(b, s);
     })(window.lintrk);
   </script>
   <noscript>
-    <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=560349316&fmt=gif" />
+    <img height="1" width="1" style="display:none;" alt=""
+      src="https://px.ads.linkedin.com/collect/?pid=560349316&fmt=gif" />
   </noscript>
 
   <!-- Banner de Consentimento de Cookies LGPD (Seção 06) -->
-  <aside class="cookie-banner" id="cookie-banner" role="region" aria-label="Aviso de Privacidade e Cookies" style="display: none;">
+  <aside class="cookie-banner" id="cookie-banner" role="region" aria-label="Aviso de Privacidade e Cookies"
+    style="display: none;">
     <div class="cookie-banner-content">
       <div class="cookie-banner-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
           <circle cx="12" cy="12" r="10"></circle>
           <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path>
           <path d="M8.5 8.5v.01"></path>
@@ -1190,12 +1214,15 @@
         </svg>
       </div>
       <p class="cookie-banner-text" data-i18n="cookie.text">
-        Utilizamos cookies necessários para o funcionamento da página e analíticos (LinkedIn Insight Tag) para mensurar acessos corporativos. Saiba mais em nossa <a href="politica-de-privacidade.html">Política de Privacidade</a>.
+        Utilizamos cookies necessários para o funcionamento da página e analíticos (LinkedIn Insight Tag) para mensurar
+        acessos corporativos. Saiba mais em nossa <a href="politica-de-privacidade.html">Política de Privacidade</a>.
       </p>
     </div>
     <div class="cookie-banner-actions">
-      <button type="button" class="btn btn-outline-cookie" id="cookie-btn-essential" data-i18n="cookie.essential">Apenas essenciais</button>
-      <button type="button" class="btn btn-primary-cookie" id="cookie-btn-accept" data-i18n="cookie.accept">Aceitar todos</button>
+      <button type="button" class="btn btn-outline-cookie" id="cookie-btn-essential" data-i18n="cookie.essential">Apenas
+        essenciais</button>
+      <button type="button" class="btn btn-primary-cookie" id="cookie-btn-accept" data-i18n="cookie.accept">Aceitar
+        todos</button>
     </div>
   </aside>
 

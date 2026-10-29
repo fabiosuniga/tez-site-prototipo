@@ -668,7 +668,7 @@ textarea {
 
 
 /* ============================================================
-   2. HERO SECTION
+   2. HERO SECTION — Vídeo Cinematográfico & Condutor de Energia
    ============================================================ */
 .hero {
   position: relative;
@@ -676,65 +676,159 @@ textarea {
   min-height: 100svh;
   display: flex;
   align-items: center;
-  background: var(--bg-dark);
+  /* Fallback crepuscular natural alinhado ao primeiro frame do vídeo (zero fundo azul artificial) */
+  background: linear-gradient(155deg, #1b2432 0%, #2d3c4e 52%, #4a4540 82%, #755b3e 100%);
   overflow: hidden;
-  padding: 120px 0 80px;
+  padding: 128px 0 96px;
   isolation: isolate;
 }
 
-/* Textura de grade técnica (grid lines) — dissolve suavemente nas bordas */
-.hero::before {
-  content: '';
+/* Camada de Vídeo Full-Bleed */
+.hero-media-bg {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
-  background-size: 60px 60px;
-  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 25%, transparent 75%);
-  mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 25%, transparent 75%);
-  pointer-events: none;
   z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
 }
 
-/* Fade inferior — a faixa de números "pousa" num fundo limpo */
-.hero::after {
-  content: '';
+.hero-bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 44%;
+  display: block;
+}
+
+/* Máscara Óptica Direcional (Scrim Cinematográfico Neutro — sem matiz azul)
+   1) Topo: protege a legibilidade da Navbar fixa transparente.
+   2) Esquerda → Direita: garante contraste AAA no texto e abre ~90% limpo sobre o vídeo à direita.
+   3) Base: vinheta sutil para ancorar a barra branca de indicadores sem encobrir o horizonte dourado. */
+.hero-video-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(8, 11, 18, 0.72) 0%, rgba(8, 11, 18, 0.22) 16%, transparent 30%),
+    linear-gradient(90deg, rgba(9, 13, 20, 0.82) 0%, rgba(9, 13, 20, 0.64) 34%, rgba(9, 13, 20, 0.22) 58%, rgba(9, 13, 20, 0.04) 80%, rgba(245, 158, 11, 0.06) 100%),
+    linear-gradient(180deg, transparent 78%, rgba(9, 13, 20, 0.46) 100%);
+  pointer-events: none;
+}
+
+/* --- Faixa Vertical Direita: Condutor de Energia Âmbar (Identidade Visual) --- */
+.hero-energy-rail {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: clamp(16px, 2.6vw, 42px);
+  width: 56px;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 2;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.15) 10%, #000 22%, #000 86%, rgba(0, 0, 0, 0.2) 95%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.15) 10%, #000 22%, #000 86%, rgba(0, 0, 0, 0.2) 95%, transparent 100%);
+}
+
+/* Bainha arquitetônica da faixa vertical com marcações técnicas em Âmbar */
+.hero-energy-sheath {
+  position: relative;
+  width: 14px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  background:
+    repeating-linear-gradient(180deg, transparent 0px, transparent 36px, rgba(251, 191, 36, 0.18) 36px, rgba(251, 191, 36, 0.18) 37px),
+    linear-gradient(180deg, rgba(245, 158, 11, 0.04), rgba(251, 191, 36, 0.11) 50%, rgba(245, 158, 11, 0.04));
+  border-left: 1px solid rgba(251, 191, 36, 0.3);
+  border-right: 1px solid rgba(251, 191, 36, 0.3);
+  box-shadow: 0 0 26px rgba(245, 158, 11, 0.18), inset 0 0 10px rgba(245, 158, 11, 0.1);
+}
+
+/* Filamento condutor central */
+.hero-energy-core {
+  position: relative;
+  width: 4px;
+  height: 100%;
+  background: rgba(245, 158, 11, 0.24);
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.35);
+}
+
+/* Pulsos harmônicos de corrente elétrica percorrendo a faixa vertical */
+.hero-energy-pulse {
   position: absolute;
   left: 0;
-  right: 0;
-  bottom: 0;
-  height: 140px;
-  background: linear-gradient(to bottom, transparent, var(--bg-dark));
-  pointer-events: none;
-  z-index: 0;
+  width: 100%;
+  border-radius: var(--radius-full);
+  will-change: transform;
 }
 
-/* Brilho azul de profundidade tecnológica */
-.hero-glow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: min(1000px, 100vw);
-  height: 550px;
-  background: radial-gradient(ellipse 65% 55% at 50% 40%, rgba(30, 64, 175, 0.3) 0%, transparent 70%);
-  filter: blur(50px);
-  pointer-events: none;
-  z-index: 0;
+.hero-energy-pulse--primary {
+  top: 0;
+  height: 25%;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--amber-600) 20%,
+    var(--amber-500) 48%,
+    var(--amber-400) 74%,
+    var(--amber-300) 90%,
+    var(--amber-50) 96%,
+    transparent 100%
+  );
+  box-shadow:
+    0 6px 18px 2px rgba(251, 191, 36, 0.85),
+    0 0 34px 7px rgba(245, 158, 11, 0.45);
+  animation: heroEnergyPrimary 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.hero-energy-pulse--secondary {
+  top: 0;
+  height: 16%;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--amber-500) 28%,
+    var(--amber-400) 68%,
+    var(--amber-100) 93%,
+    transparent 100%
+  );
+  box-shadow:
+    0 4px 14px 2px rgba(252, 211, 77, 0.75),
+    0 0 24px 4px rgba(245, 158, 11, 0.35);
+  animation: heroEnergySecondary 2.1s linear 1.15s infinite;
+}
+
+@keyframes heroEnergyPrimary {
+  from {
+    transform: translate3d(0, -125%, 0);
+  }
+
+  to {
+    transform: translate3d(0, 440%, 0);
+  }
+}
+
+@keyframes heroEnergySecondary {
+  from {
+    transform: translate3d(0, -125%, 0);
+  }
+
+  to {
+    transform: translate3d(0, 660%, 0);
+  }
 }
 
 .hero .container {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  width: 100%;
+  display: flex;
   align-items: center;
-  gap: 56px;
   position: relative;
-  z-index: 1;
+  z-index: 3;
 }
 
 .hero-content {
-  max-width: 620px;
+  max-width: 630px;
 }
 
 .hero-badge {
@@ -743,14 +837,14 @@ textarea {
   gap: 8px;
   padding: 6px 16px;
   border-radius: var(--radius-full);
-  border: 1px solid rgba(148, 163, 184, 0.25);
-  background: rgba(30, 41, 59, 0.6);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(12, 17, 26, 0.62);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   font-family: var(--font-heading);
   font-size: 0.8125rem;
   font-weight: 600;
-  color: var(--slate-300);
+  color: var(--slate-100);
   letter-spacing: 0.02em;
   margin-bottom: 24px;
 }
@@ -760,6 +854,7 @@ textarea {
   height: 6px;
   background: var(--amber-500);
   border-radius: 50%;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.8);
 }
 
 .hero-title {
@@ -770,6 +865,7 @@ textarea {
   color: var(--text-inverse);
   margin-bottom: 20px;
   letter-spacing: -0.025em;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.38);
 }
 
 .hero-title .highlight {
@@ -779,9 +875,10 @@ textarea {
 .hero-description {
   font-size: 1.05rem;
   line-height: 1.7;
-  color: var(--slate-300);
+  color: var(--slate-200);
   margin-bottom: 36px;
   max-width: 560px;
+  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.45);
 }
 
 .hero-actions {
@@ -790,7 +887,7 @@ textarea {
   flex-wrap: wrap;
 }
 
-/* Botão principal em Slate com texto branco (sem gradiente de baixo contraste) */
+/* Botão principal em Âmbar com texto escuro de alto contraste */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -827,7 +924,7 @@ textarea {
   transform: translateX(4px);
 }
 
-/* Botão secundário com contorno em Slate (sem gradiente) */
+/* Botão secundário com contorno (e vidro escuro no Hero sobre o vídeo) */
 .btn-outline {
   display: inline-flex;
   align-items: center;
@@ -852,38 +949,18 @@ textarea {
   transform: translateY(-2px);
 }
 
-/* Hero Media Visual — Fotografia / Mídia de infraestrutura com moldura de recorte */
-.hero-visual {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+.hero .btn-outline {
+  background: rgba(12, 17, 26, 0.48);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-color: rgba(255, 255, 255, 0.24);
+  color: #FFFFFF;
 }
 
-.hero-media-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 560px;
-}
-
-.hero-media-frame {
-  position: relative;
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  border: 1px solid rgba(148, 163, 184, 0.2);
-  background: var(--slate-900);
-  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  aspect-ratio: 16 / 9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-media-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.hero .btn-outline:hover {
+  background: rgba(12, 17, 26, 0.72);
+  border-color: var(--amber-400);
+  color: #FFFFFF;
 }
 
 
@@ -2112,6 +2189,7 @@ textarea {
   max-width: 100%;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .contact-info .section-title {
@@ -2186,7 +2264,7 @@ textarea {
 
 /* Card de Mapa Google Integrado */
 .contact-map-card {
-  margin-top: auto;
+  margin-top: 8px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-lg);
@@ -2195,7 +2273,8 @@ textarea {
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-  flex: 1 1 auto;
+  flex: 1 1 0;
+  min-height: 280px;
 }
 
 .contact-map-card:hover {
@@ -2203,11 +2282,18 @@ textarea {
   box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.6), 0 0 20px rgba(245, 158, 11, 0.08);
 }
 
+.contact-map-frame-wrap {
+  flex: 1 1 auto;
+  position: relative;
+  width: 100%;
+  min-height: 220px;
+}
+
 .contact-map-frame {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  min-height: 230px;
-  flex: 1 1 auto;
   display: block;
   border: none;
   filter: contrast(102%) brightness(96%);
@@ -3104,27 +3190,8 @@ input:-webkit-autofill:active {
 
 /* Tablet */
 @media (max-width: 1024px) {
-  .hero .container {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
   .hero-content {
-    max-width: 100%;
-  }
-
-  .hero-description {
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .hero-actions {
-    justify-content: center;
-  }
-
-  .hero-visual {
-    order: -1;
+    max-width: 580px;
   }
 
 
@@ -3192,11 +3259,12 @@ input:-webkit-autofill:active {
   .contact-map-card {
     flex: none;
     margin-top: 24px;
+    min-height: 260px;
   }
 
-  .contact-map-frame {
-    min-height: 220px;
-    height: 220px;
+  .contact-map-frame-wrap {
+    height: 240px;
+    min-height: 240px;
   }
 
   .footer-top {
@@ -3353,22 +3421,38 @@ input:-webkit-autofill:active {
 
   /* Hero */
   .hero {
-    padding: 100px 0 80px;
-    min-height: auto;
+    padding: 112px 0 88px;
+    min-height: 88svh;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .hero-description {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-video-scrim {
+    background:
+      linear-gradient(180deg, rgba(8, 11, 18, 0.76) 0%, rgba(9, 13, 20, 0.56) 48%, rgba(9, 13, 20, 0.68) 100%);
+  }
+
+  .hero-energy-rail {
+    right: 4px;
+    width: 30px;
+    opacity: 0.72;
+  }
+
+  .hero-energy-sheath {
+    width: 10px;
   }
 
   .hero-title {
     font-size: clamp(1.75rem, 6vw, 2.5rem);
-  }
-
-  .hero-media-wrapper {
-    max-width: 100%;
-    margin-top: 16px;
-  }
-
-  .hero-media-frame {
-    aspect-ratio: 16 / 10;
-    max-height: 280px;
   }
 
   .hero-actions {
@@ -3550,6 +3634,18 @@ input:-webkit-autofill:active {
   .reveal {
     opacity: 1;
     translate: none;
+  }
+
+  .hero-energy-pulse {
+    animation: none !important;
+    transform: none !important;
+    top: 30%;
+    height: 40%;
+    opacity: 0.75;
+  }
+
+  .hero-energy-pulse--secondary {
+    display: none;
   }
 }
 

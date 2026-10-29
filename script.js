@@ -18,6 +18,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ============================================================
+  // 1.5 HERO BACKGROUND VIDEO — Autoplay Seguro, Pausa Offscreen & Acessibilidade
+  // ============================================================
+  const heroVideo = document.getElementById('hero-bg-video');
+  if (heroVideo) {
+    heroVideo.muted = true;
+    heroVideo.defaultMuted = true;
+
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    function syncHeroVideoPlayback(isIntersecting = true) {
+      if (motionQuery.matches || !isIntersecting) {
+        heroVideo.pause();
+      } else {
+        const playPromise = heroVideo.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {});
+        }
+      }
+    }
+
+    if ('IntersectionObserver' in window) {
+      const heroObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => syncHeroVideoPlayback(entry.isIntersecting));
+      }, { threshold: 0.05 });
+      heroObserver.observe(heroVideo);
+    } else {
+      syncHeroVideoPlayback(true);
+    }
+
+    if (typeof motionQuery.addEventListener === 'function') {
+      motionQuery.addEventListener('change', () => syncHeroVideoPlayback(true));
+    }
+  }
+
+
+  // ============================================================
   // 2. MOBILE NAV TOGGLE & OVERLAY
   // ============================================================
   const navToggle = document.getElementById('nav-toggle');
@@ -706,8 +742,6 @@ document.addEventListener('DOMContentLoaded', () => {
       "faq.a2": "O Manual de Controle Patrimonial do Setor Elétrico (MCPSE), o PRODIST, o PRORET, as exigências da ANEEL para a Base de Remuneração Regulatória (BRR) e para a fiscalização, e os procedimentos do ONS para a BDIT.",
       "faq.q3": "A Plataforma TGA se integra ao nosso ERP (SAP, Oracle)?",
       "faq.a3": "Sim. A plataforma roda em nuvem com arquitetura Oracle e se integra aos principais ERPs do mercado, como SAP e Oracle. O escopo da integração é definido com a equipe de TI do cliente em cada projeto.",
-      "faq.q4": "Qual o prazo para um laudo de Base de Remuneração Regulatória (BRR)?",
-      "faq.a4": "Depende do volume de ativos e da complexidade do levantamento de campo. Em uma conversa inicial, avaliamos o escopo e apresentamos um cronograma para a sua empresa.",
       "cont.label": "Fale conosco",
       "cont.title": "Fale com um especialista",
       "cont.subtitle": "Agende uma demonstração da Plataforma TGA e veja como organizar a base de ativos da sua empresa, do campo à decisão.",
@@ -861,8 +895,6 @@ document.addEventListener('DOMContentLoaded', () => {
       "faq.a2": "The Electric Sector Asset Control Manual (MCPSE), PRODIST, PRORET, ANEEL requirements for the Regulatory Asset Base (RAB/BRR) and audit defense, as well as ONS procedures for transmission BDIT databases.",
       "faq.q3": "Does the TGA Platform integrate with our enterprise ERP (SAP, Oracle)?",
       "faq.a3": "Yes. The platform operates on a secure Oracle cloud architecture and connects with major ERPs such as SAP and Oracle EBS. Integration specifications are customized alongside the client's IT team.",
-      "faq.q4": "What is the typical timeframe for a Regulatory Asset Base (RAB/BRR) report?",
-      "faq.a4": "It depends on asset volume and field surveying complexity. In an initial assessment, we evaluate the scope and provide a tailored timeline for your utility.",
       "cont.label": "Contact Us",
       "cont.title": "Speak with a Specialist",
       "cont.subtitle": "Schedule a demonstration of the TGA Platform and discover how to organize your utility's asset base, from field to decision.",
@@ -1016,8 +1048,6 @@ document.addEventListener('DOMContentLoaded', () => {
       "faq.a2": "Il Manuale di Controllo Patrimoniale del Settore Elettrico (MCPSE), il PRODIST, il PRORET, i requisiti ANEEL per la Base di Remunerazione Regolatoria (BRR) e per le ispezioni, nonché le procedure ONS per il BDIT.",
       "faq.q3": "La Piattaforma TGA si integra con il nostro ERP (SAP, Oracle)?",
       "faq.a3": "Sì. La piattaforma opera su cloud con architettura Oracle e si integra con i principali ERP, tra cui SAP e Oracle. L'architettura di integrazione viene concordata con il team IT del cliente in ogni progetto.",
-      "faq.q4": "Quali sono i tempi di redazione per una perizia di Base Regolatoria (BRR)?",
-      "faq.a4": "Dipende dalla consistenza dei cespiti e dalla complessità del censimento sul campo. In un primo colloquio tecnico, valutiamo il perimetro e presentiamo una pianificazione dedicata.",
       "cont.label": "Contattaci",
       "cont.title": "Parla con uno Specialista",
       "cont.subtitle": "Prenota una dimostrazione della Piattaforma TGA e scopri come organizzare la base asset della tua azienda, dal campo alla decisione.",
