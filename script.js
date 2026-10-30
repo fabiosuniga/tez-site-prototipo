@@ -320,7 +320,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function resetButton() {
       if (!submitBtn) return;
       submitBtn.classList.remove('is-success');
-      submitBtn.textContent = originalText;
+      submitBtn.textContent = (typeof translations !== 'undefined' && translations[getLang()]?.['cont.form_submit']) || originalText;
       submitBtn.disabled = false;
     }
 
@@ -470,7 +470,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Evento 4: Interação com os cartões dos 7 módulos
   document.querySelectorAll('.module-card').forEach(card => {
     card.addEventListener('click', () => {
-      const moduleName = card.querySelector('.module-title')?.textContent.trim() || 'modulo';
+      const moduleName = card.querySelector('.module-name, .module-title')?.textContent.trim() || 'modulo';
       trackEvent('module_interaction', { module: moduleName });
     });
   });
@@ -692,7 +692,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "num.aneel": "Credenciada pela ANEEL",
       "about.label": "Quem somos",
       "about.title": "Tecnologia própria e uma equipe que conhece a regulação",
-      "about.p1": "A TEZ &amp; TEZ é uma empresa de tecnologia em gestão de ativos. Desenvolve a Plataforma TGA e presta assessoria e consultoria a empresas de infraestrutura regulada: distribuição e transmissão de energia, gás canalizado e saneamento. Desde 1993, a equipe trabalha com inventário, conciliação, bases regulatórias e base de remuneração, do campo à contabilidade.",
+      "about.p1": "A TEZ &amp; TEZ é uma empresa de tecnologia em gestão de ativos. Desenvolve a Plataforma TGA e presta assessoria e consultoria a empresas de infraestrutura regulada: distribuição e transmissão de energia, gás canalizado e saneamento. Temos profissionais com mais de 33 anos de experiência, a equipe trabalha com inventário, conciliação, bases regulatórias e base de remuneração, do campo à contabilidade.",
       "about.p2": "A base de tudo é a <strong>Conciliação Quádrupla</strong>, entre inventário, projeto, físico e contábil: é ela que identifica sobras, faltas e divergências patrimoniais e sustenta a base de ativos em auditorias e revisões tarifárias.",
       "about.tip_inv": "Levantamento e codificação de todos os ativos em campo conforme o padrão MCPSE, com registro fotográfico e relatórios integrados.",
       "about.tip_proj": "Validação dos dados de projeto de engenharia, para que cada ativo esteja documentado e alinhado com as especificações originais da obra.",
@@ -762,7 +762,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "serv.s1_title": "Inventário físico e levantamento de campo",
       "serv.s1_desc": "Vistoria técnica em subestações, usinas e linhas, com codificação MCPSE, registro fotográfico e relatórios integrados. Garantia de acurácia para a regularização dos dados.",
       "serv.s2_title": "Conciliação Quádrupla",
-      "serv.s2_desc": "Alinhamento entre inventário, projeto, físico e contábil para identificar sobras, faltas e divergências patrimoniais. Base pronta para auditorias e revisões tarifárias.",
+      "serv.s2_desc": "Alinhamento entre inventário, projeto, físico e contábil para identificar sobras, faltas e divergências patrimoniais, corrigir a base de ativos e preparar auditorias.",
       "serv.s3_title": "Apoio à fiscalização da ANEEL (SFF)",
       "serv.s3_desc": "Suporte técnico nas fiscalizações, com foco na Base de Remuneração Regulatória (BRR), organização das evidências e atendimento às exigências do processo.",
       "serv.s4_title": "Gestão de dados e informações",
@@ -805,6 +805,9 @@ document.addEventListener('DOMContentLoaded', () => {
       "cont.form_msg": "Mensagem",
       "cont.ph_msg": "Conte-nos sobre sua necessidade...",
       "cont.form_consent": "Concordo com o tratamento dos meus dados para retorno deste contato, conforme a <a href=\"politica-de-privacidade.html\" target=\"_blank\" rel=\"noopener\">Política de Privacidade</a>.",
+      "cont.err_name": "Informe seu nome.",
+      "cont.err_email": "Informe um e-mail válido.",
+      "cont.err_consent": "É necessário aceitar para enviar.",
       "cont.form_submit": "Enviar mensagem",
       "foot.inst": "Institucional",
       "foot.about": "Sobre",
@@ -845,7 +848,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "num.aneel": "Accredited by ANEEL",
       "about.label": "About Us",
       "about.title": "Proprietary technology and a team with deep regulatory expertise",
-      "about.p1": "TEZ &amp; TEZ is an asset management technology company. We develop the TGA Platform and provide advisory and consulting services to regulated infrastructure utilities: power distribution and transmission, piped gas, and water/sanitation. Since 1993, our team has delivered field-to-accounting inventory, reconciliation, regulatory asset bases, and tariff compliance.",
+      "about.p1": "TEZ &amp; TEZ is an asset management technology company. We develop the TGA Platform and provide advisory and consulting services to regulated infrastructure utilities: power distribution and transmission, piped gas, and water/sanitation. With professionals bringing over 33 years of experience, our team delivers field-to-accounting inventory, reconciliation, regulatory asset bases, and tariff compliance.",
       "about.p2": "The foundation of our approach is <strong>Quadruple Reconciliation</strong>—aligning inventory, engineering design, physical verification, and accounting records: eliminating asset discrepancies and defending the asset base during regulatory audits and tariff reviews.",
       "about.tip_inv": "On-site surveying and tagging of all field assets according to MCPSE regulatory standards, with photographic records and integrated reports.",
       "about.tip_proj": "Validation of engineering project data, ensuring every asset is thoroughly documented and matches original construction specifications.",
@@ -958,6 +961,9 @@ document.addEventListener('DOMContentLoaded', () => {
       "cont.form_msg": "Message",
       "cont.ph_msg": "Tell us about your requirements...",
       "cont.form_consent": "I agree to the processing of my contact information in accordance with the <a href=\"politica-de-privacidade.html\" target=\"_blank\" rel=\"noopener\">Privacy Policy</a>.",
+      "cont.err_name": "Please enter your name.",
+      "cont.err_email": "Please enter a valid email address.",
+      "cont.err_consent": "You must accept to send.",
       "cont.form_submit": "Send Message",
       "foot.inst": "Corporate",
       "foot.about": "About",
@@ -998,7 +1004,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "num.aneel": "Accreditata da ANEEL",
       "about.label": "Chi Siamo",
       "about.title": "Tecnologia proprietaria e un team con profonda competenza normativa",
-      "about.p1": "TEZ &amp; TEZ è un'azienda di tecnologia nella gestione degli asset. Sviluppa la Piattaforma TGA e fornisce consulenza a società di infrastrutture regolamentate: distribuzione e trasmissione di energia, gas canalizzato e servizi idrici. Dal 1993, il nostro team opera su inventario, riconciliazione, basi regolatorie e remunerazione del capitale, dal campo alla contabilità.",
+      "about.p1": "TEZ &amp; TEZ è un'azienda di tecnologia nella gestione degli asset. Sviluppa la Piattaforma TGA e fornisce consulenza a società di infrastrutture regolamentate: distribuzione e trasmissione di energia, gas canalizzato e servizi idrici. Con professionisti con oltre 33 anni di esperienza, il nostro team opera su inventario, riconciliazione, basi regolatorie e remunerazione del capitale, dal campo alla contabilità.",
       "about.p2": "Il fondamento del nostro approccio è la <strong>Riconciliazione Quadrupla</strong>—tra inventario, progetto, consistenza fisica e scritture contabili: identifica eccedenze, mancanze e incongruenze patrimoniali, difendendo la base asset durante audit e revisioni tariffarie.",
       "about.tip_inv": "Censimento e codifica di tutti gli asset sul campo secondo lo standard MCPSE, con rilievo fotografico e report integrati.",
       "about.tip_proj": "Validazione dei dati di progetto ingegneristico, assicurando che ogni asset sia documentato e conforme alle specifiche originali dell'opera.",
@@ -1111,6 +1117,9 @@ document.addEventListener('DOMContentLoaded', () => {
       "cont.form_msg": "Messaggio",
       "cont.ph_msg": "Descrivi le tue esigenze...",
       "cont.form_consent": "Acconsento al trattamento dei miei dati personali per essere ricontattato, ai sensi della <a href=\"politica-de-privacidade.html\" target=\"_blank\" rel=\"noopener\">Privacy Policy</a>.",
+      "cont.err_name": "Inserisci il tuo nome.",
+      "cont.err_email": "Inserisci un indirizzo email valido.",
+      "cont.err_consent": "È necessario accettare per inviare.",
       "cont.form_submit": "Invia Messaggio",
       "foot.inst": "Istituzionale",
       "foot.about": "Chi Siamo",
