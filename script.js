@@ -50,6 +50,45 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof motionQuery.addEventListener === 'function') {
       motionQuery.addEventListener('change', () => syncHeroVideoPlayback(true));
     }
+
+    // Transição suave no looping (Dissolve in/out cinematográfico)
+    const FADE_TRIGGER_TIME = 1.2;
+    let isFadingOut = false;
+
+    function handleVideoFadeLoop() {
+      if (!heroVideo.duration || Number.isNaN(heroVideo.duration)) return;
+
+      const timeLeft = heroVideo.duration - heroVideo.currentTime;
+
+      // Inicia o fade out suave antes do fim do vídeo
+      if (timeLeft <= FADE_TRIGGER_TIME && heroVideo.currentTime > 1 && !isFadingOut) {
+        isFadingOut = true;
+        heroVideo.classList.add('is-fading');
+      }
+
+      // Ao reiniciar no segundo 0, faz o fade in gradual
+      if (heroVideo.currentTime < 0.6 && isFadingOut) {
+        isFadingOut = false;
+        heroVideo.classList.remove('is-fading');
+      }
+    }
+
+    heroVideo.addEventListener('timeupdate', handleVideoFadeLoop);
+
+    heroVideo.addEventListener('seeked', () => {
+      if (heroVideo.currentTime < 1 && isFadingOut) {
+        isFadingOut = false;
+        heroVideo.classList.remove('is-fading');
+      }
+    });
+
+    heroVideo.addEventListener('ended', () => {
+      isFadingOut = false;
+      heroVideo.classList.remove('is-fading');
+      heroVideo.currentTime = 0;
+      const p = heroVideo.play();
+      if (p !== undefined) p.catch(() => {});
+    });
   }
 
 

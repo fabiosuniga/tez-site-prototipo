@@ -690,6 +690,7 @@ textarea {
   z-index: 0;
   overflow: hidden;
   pointer-events: none;
+  background-color: #0b0f17;
 }
 
 .hero-bg-video {
@@ -698,6 +699,13 @@ textarea {
   object-fit: cover;
   object-position: center 44%;
   display: block;
+  opacity: 1;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity;
+}
+
+.hero-bg-video.is-fading {
+  opacity: 0;
 }
 
 /* Máscara Óptica Direcional (Scrim Cinematográfico Neutro — sem matiz azul)
